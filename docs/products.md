@@ -389,8 +389,8 @@ public class Variant {
         "name": "Футболка Красная S",
         "price": "900.00",
         "optionValueIdByOptionName": {
-          "color": 1, // Красный
-          "size": 4 // S
+          "color": 1,
+          "size": 4
         }
       },
       {
@@ -398,8 +398,8 @@ public class Variant {
         "name": "Футболка Красная M",
         "price": "950.00",
         "optionValueIdByOptionName": {
-          "color": 1, // Красный
-          "size": 5 // M
+          "color": 1,
+          "size": 5
         }
       },
       {
@@ -407,8 +407,8 @@ public class Variant {
         "name": "Футболка Зеленая M",
         "price": "950.00",
         "optionValueIdByOptionName": {
-          "color": 2, // Зеленый
-          "size": 5 // M
+          "color": 2,
+          "size": 5
         }
       }
     ]
