@@ -566,8 +566,13 @@ public class Variant {
   private Long id;
   private String name;
   private BigDecimal price;
-  private Long productId;
+  private Product product;
   private List<OptionValue> optionValues;
+}
+
+public class Product {
+  private Long id;
+  private String name;
 }
 
 public class OptionValue {
@@ -599,7 +604,10 @@ public class Option {
           "id": 1,
           "name": "Футболка Красная S",
           "price": "900.0",
-          "productId": 1,
+          "product": {
+            "id": 1,
+            "name": "Футболка"
+          },
           "optionValues": [
             {
               "id": 1,
