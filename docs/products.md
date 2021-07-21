@@ -505,8 +505,12 @@ public class OptionValue {
 public class Variant {
   private Long id;
   private String name;
-  private BigDecimal price;
+  private VariantPrice price;
   private Map<String, Long> optionValueIdByOptionName;
+}
+
+public class VariantPrice {
+  private BigDecimal amount;
 }
 ```
 
@@ -579,7 +583,9 @@ public class Variant {
       {
         "id": 1,
         "name": "Футболка Красная S",
-        "price": "900.00",
+        "price": {
+          "amount": "900.00"
+        },
         "optionValueIdByOptionName": {
           "color": 1,
           "size": 4
@@ -588,7 +594,9 @@ public class Variant {
       {
         "id": 2,
         "name": "Футболка Красная M",
-        "price": "950.00",
+        "price": {
+          "amount": "950.00"
+        },
         "optionValueIdByOptionName": {
           "color": 1,
           "size": 5
@@ -597,7 +605,9 @@ public class Variant {
       {
         "id": 3,
         "name": "Футболка Зеленая M",
-        "price": "950.00",
+        "price": {
+          "amount": "950.00"
+        },
         "optionValueIdByOptionName": {
           "color": 2,
           "size": 5
@@ -608,7 +618,9 @@ public class Variant {
 }
 ```
 
-Обратите внимание, что идентификаторы значений опций не могут повторяться даже между разными опциями. Если цвет "Красный" имеет идентификатор 1, то никакого размера с идентификатором 1 уже быть не может.
+Цена выгружена отдельным объектом, а не одним полем, так как с течением времени может понадобиться дополнительная информация о цене. Например, валюта или отформатированное значение.
+
+Идентификаторы значений опций не могут повторяться даже между разными опциями. Если цвет "Красный" имеет идентификатор 1, то никакого размера с идентификатором 1 уже быть не может.
 
 Одно и то же значение опции может находиться в нескольких разных вариантах. Чтобы клиент мог оперировать уникальными списками опций и их значений, они выданы параллельно с вариантами, а не внутри.
 
@@ -650,6 +662,8 @@ CREATE UNIQUE INDEX index_variant_prices_on_variant_id_and_currency_code
   (variant_id, currency_code);
 ```
 
+Клиентской стороне не обязательно знать информацию о всех валютах. Достаточно дать пользователю выбрать валюту один раз для всего магазина, глобальной настройкой, а в информации о товарах выдавать одну цену в выбранной валюте. Выбранную валюту можно хранить на клиенте и передавать в каждый запрос или сохранить единожды в базе данных на сервере для конкретного пользователя.
+
 Структура данных для сериализации в JSON:
 
 ```java
@@ -657,7 +671,7 @@ public class Variant {
   private Long id;
   private String name;
   private Map<String, Long> optionValueIdByOptionName;
-  private List<VariantPrice> prices;
+  private VariantPrice price;
 }
 
 public class VariantPrice {
@@ -667,7 +681,7 @@ public class VariantPrice {
 }
 ```
 
-Пример выдачи вариантов со списком цен в API:
+Пример выдачи вариантов:
 
 ```json
 {
@@ -679,18 +693,11 @@ public class VariantPrice {
         "color": 1,
         "size": 4
       },
-      "prices": [
-        {
-          "id": 1,
-          "amount": "900.0",
-          "currencyCode": "RUB"
-        },
-        {
-          "id": 2,
-          "amount": "11.5",
-          "currencyCode": "USD"
-        }
-      ]
+      "price": {
+        "id": 1,
+        "amount": "900.0",
+        "currencyCode": "RUB"
+      }
     }
   ]
 }
