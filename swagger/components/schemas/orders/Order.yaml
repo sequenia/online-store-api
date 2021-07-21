@@ -1,0 +1,17 @@
+allOf:
+  - $ref: '../base/Object.yaml'
+  - type: object
+    description: Заказ
+    properties:
+      status:
+        type: string
+        enum:
+          - cart
+        description: |
+          Статус заказа. Возможные значения:
+          - `cart` - Корзина. Для каждого пользователя может быть только один заказ к статусе `cart`.
+        example: cart
+      currencyCode:
+        type: string
+        description: Код валюта, в которой оформлен заказ
+        example: RUB

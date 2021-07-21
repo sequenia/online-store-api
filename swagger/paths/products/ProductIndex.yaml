@@ -1,0 +1,21 @@
+summary: Список товаров
+description: Возвращает список товаров
+tags:
+  - Товары
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../components/schemas/responses/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    products:
+                      type: array
+                      description: Список товаров
+                      items:
+                        $ref: '../../components/schemas/products/IndexProduct.yaml'

@@ -1,0 +1,7 @@
+name: productId
+in: path
+description: Идентификатор товара
+required: true
+schema:
+  type: integer
+  example: 1

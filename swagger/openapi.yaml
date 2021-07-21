@@ -6,3 +6,13 @@ info:
 servers:
   - url: 'https://online-store.com/api/v1'
 paths:
+  $ref: './paths/_index.yaml'
+components:
+  parameters:
+    $ref: './components/parameters/_index.yaml'
+  requestBodies:
+    $ref: './components/requestBodies/_index.yaml'
+  examples:
+    $ref: './components/examples/_index.yaml'
+  schemas:
+    $ref: './components/schemas/_index.yaml'

@@ -1,0 +1,23 @@
+type: object
+description: Ответ от сервера в случае ошибки
+properties:
+  success:
+    type: boolean
+    description: Статус ответа. Всегда равен `false` для ответа с ошибкой
+    example: false
+  data:
+    type: object
+    description: Данные ответа. Вегда равно `null` для ответа с ошибкой
+    example: null
+  errorCode:
+    type: string
+    description: Код ошибки. Используется для отладки или обработки особых случаев поведения при ошибке. Это не HTTP-статус, а индикатор конкретной ошибки конкретного запроса. Например, если при аутентификации не удалось найти учетную запись, то кодом ошибки может быть `profile_not_found`.
+    example: profile_not_found
+  errorMessage:
+    type: string
+    description: 'Сообщение от сервера при ошибке, которое должно вывести МП для пользователя'
+    example: Аккаунт не найден
+  errors:
+    type: object
+    description: Объект с ошибками по каждому из полей, переданных в тело запроса
+    example: null

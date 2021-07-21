@@ -1,0 +1,4 @@
+allOf:
+  - $ref: './Price.yaml'
+  - type: object
+    description: Цена выбранного варианта товара в позиции заказа

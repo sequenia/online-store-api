@@ -1,0 +1,11 @@
+allOf:
+  - $ref: './Product.yaml'
+  - type: object
+    properties:
+      masterVariant:
+        allOf:
+          - $ref: '../variants/MasterVariant.yaml'
+          - type: object
+            properties:
+              price:
+                $ref: '../prices/VariantPrice.yaml'

@@ -1,0 +1,44 @@
+allOf:
+  - $ref: './Order.yaml'
+  - type: object
+    properties:
+      items:
+        type: array
+        description: Позиции корзины
+        items:
+          allOf:
+            - $ref: '../orderItems/OrderItem.yaml'
+            - type: object
+              properties:
+                price:
+                  $ref: '../prices/OrderItemPrice.yaml'
+                variant:
+                  allOf:
+                    - $ref: '../variants/Variant.yaml'
+                    - type: object
+                      properties:
+                        product:
+                          allOf:
+                            - $ref: '../products/Product.yaml'
+                            - type: object
+                              properties:
+                                propertyValues:
+                                  type: array
+                                  description: Значения свойств товара
+                                  items:
+                                    allOf:
+                                      - $ref: '../propertyValues/PropertyValue.yaml'
+                                      - type: object
+                                        properties:
+                                          property:
+                                            $ref: '../properties/Property.yaml'
+                        optionValues:
+                          type: array
+                          description: Значения всех опций товара текущего варианта
+                          items:
+                            allOf:
+                              - $ref: '../optionValues/OptionValue.yaml'
+                              - type: object
+                                properties:
+                                  option:
+                                    $ref: '../options/Option.yaml'

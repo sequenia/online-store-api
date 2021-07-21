@@ -1,0 +1,50 @@
+summary: Редактирование позиции в корзине
+description: Изменяет информацию о позиции в корзине по идентификатору позиции. Возвращает в ответ обновлённую корзину.
+tags:
+  - Корзина
+parameters:
+  - $ref: '../../components/parameters/cartItems/CartItemId.yaml'
+requestBody:
+  $ref: '../../components/requestBodies/cartItems/UpdateCartItem.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../components/schemas/responses/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    cart:
+                      $ref: '../../components/schemas/orders/ShowCart.yaml'
+  '404':
+    description: Ошибка "Не найдено"
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/responses/ErrorResponse.yaml'
+        examples:
+          CartItemNotFound:
+            allOf:
+              - $ref: '../../components/examples/responses/base/ErrorResponse.yaml'
+              - summary: Позиция корзины не найдена
+                value:
+                  errorCode: cart_item_not_found
+                  errorMessage: Не удалось изменить данные, так как товар отсутствует в корзине
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/responses/ErrorResponse.yaml'
+        examples:
+          WrongCount:
+            allOf:
+              - $ref: '../../components/examples/responses/base/ErrorResponse.yaml'
+              - summary: Неверное количество
+                value:
+                  errorCode: wrong_count
+                  errorMessage: Количество должно быть положительным

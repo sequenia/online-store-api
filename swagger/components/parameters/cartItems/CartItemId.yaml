@@ -1,0 +1,7 @@
+name: cartItemId
+in: path
+description: Идентификатор позиции в корзине
+required: true
+schema:
+  type: integer
+  example: 1

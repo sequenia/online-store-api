@@ -1,0 +1,61 @@
+allOf:
+  - $ref: './Product.yaml'
+  - type: object
+    properties:
+      propertyValues:
+        type: array
+        description: Конкретные значения для всех свойств товара
+        items:
+          allOf:
+            - $ref: '../propertyValues/PropertyValue.yaml'
+            - type: object
+              properties:
+                property:
+                  allOf:
+                    - $ref: '../properties/Property.yaml'
+      options:
+        type: array
+        description: Все опции товара с возможными значениями в рамках товара
+        items:
+          allOf:
+            - $ref: '../options/Option.yaml'
+            - type: object
+              properties:
+                values:
+                  type: array
+                  description: Значения опции, доступные в рамках товара
+                  items:
+                    allOf:
+                      - $ref: '../optionValues/OptionValue.yaml'
+                      - type: object
+                        properties:
+                          metas:
+                            type: array
+                            description: Список дополнительной информации об опциях
+                            items:
+                              $ref: '../optionValueMetas/OptionValueMeta.yaml'
+      masterVariant:
+        allOf:
+          - $ref: '../variants/MasterVariant.yaml'
+          - type: object
+            properties:
+              price:
+                $ref: '../prices/VariantPrice.yaml'
+      variants:
+        type: array
+        description: Список вариантов товара. Содержит варианты со значениями опций, не содержит главного варианта.
+        items:
+          allOf:
+            - $ref: '../variants/RegularVariant.yaml'
+            - type: object
+              properties:
+                optionValueIdByOptionName:
+                  type: object
+                  description: |
+                    Объект, который содержит значения опций, из которых состоит текущий вариант.
+                    
+                    Ключ - системное название опции. Значение - идентификатор значения опции.
+                  example:
+                    color: 1
+                price:
+                  $ref: '../prices/VariantPrice.yaml'

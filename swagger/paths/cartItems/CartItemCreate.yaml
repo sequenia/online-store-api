@@ -1,0 +1,41 @@
+summary: Добавление в корзину
+description: Добавляет вариант товара в корзину. Если вариант уже добавлен в корзину, то изменяет количество в существующей позиции корзины на переданное (можно передавать отрицательное количество для уменьшения). Если количество стало меньше или равно нулю, то удаляет позицию из корзины. Возвращает обновлённую корзину.
+tags:
+  - Корзина
+requestBody:
+  $ref: '../../components/requestBodies/cartItems/CreateCartItem.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../components/schemas/responses/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    cart:
+                      $ref: '../../components/schemas/orders/ShowCart.yaml'
+  '404':
+    description: Ошибка "Не найдено"
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/responses/ErrorResponse.yaml'
+        examples:
+          ProductNotFound:
+            allOf:
+              - $ref: '../../components/examples/responses/base/ErrorResponse.yaml'
+              - summary: Товар не найден
+                value:
+                  errorCode: product_not_found
+                  errorMessage: Товар не найден
+          VariantNotFound:
+            allOf:
+              - $ref: '../../components/examples/responses/base/ErrorResponse.yaml'
+              - summary: Вариант не найден
+                value:
+                  errorCode: variant_not_found
+                  errorMessage: Не удалось добавить вариант товара в корзину, так как он отсутствует в магазине

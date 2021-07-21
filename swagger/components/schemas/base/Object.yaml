@@ -1,0 +1,7 @@
+type: object
+description: Объект, описывающий общие поля всех остальных объектов
+properties:
+  id:
+    type: integer
+    description: Автоинкрементный идентификатор
+    example: 1

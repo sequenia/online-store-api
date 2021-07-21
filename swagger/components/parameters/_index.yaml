@@ -1,0 +1,4 @@
+ProductId:
+  $ref: './products/ProductId.yaml'
+CartItemId:
+  $ref: './cartItems/CartItemId.yaml'
