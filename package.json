@@ -1,0 +1,13 @@
+{
+  "name": "online-store-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "swagger-cli": "^4.0.4"
+  },
+  "scripts": {
+    "validate": "swagger-cli validate swagger/openapi.yaml --debug",
+    "bundle": "swagger-cli bundle swagger/openapi.yaml --outfile build/swagger/online_store_api.yaml --type yaml --debug"
+  }
+}

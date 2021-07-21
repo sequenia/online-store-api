@@ -1,0 +1,8 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Интернет-магазин
+  description: Пример REST API интернет-магазина
+servers:
+  - url: 'https://online-store.com/api/v1'
+paths:
