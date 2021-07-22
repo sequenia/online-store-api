@@ -3,7 +3,14 @@ description: Добавляет вариант товара в корзину. �
 tags:
   - Корзина
 requestBody:
-  $ref: '../../cartItems/requestBodies/CreateCartItem.yaml'
+  description: Данные для добавления варианта товара в корзину
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          item:
+            $ref: '../../orderItems/schemas/CreateOrderItem.yaml'
 responses:
   '200':
     description: Успех

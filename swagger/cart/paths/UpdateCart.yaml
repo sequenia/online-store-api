@@ -3,7 +3,14 @@ description: Запрос предназначен для обновления �
 tags:
   - Корзина
 requestBody:
-  $ref: '../../cart/requestBodies/UpdateCart.yaml'
+  description: Данные для обновления корзины
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          cart:
+            $ref: '../../cart/schemas/UpdateCart.yaml'
 responses:
   '200':
     description: Успех

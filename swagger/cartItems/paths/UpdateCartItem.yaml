@@ -5,7 +5,14 @@ tags:
 parameters:
   - $ref: '../../cartItems/parameters/CartItemId.yaml'
 requestBody:
-  $ref: '../../cartItems/requestBodies/UpdateCartItem.yaml'
+  description: Данные, которые нужно задать в позицию корзины
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          item:
+            $ref: '../../orderItems/schemas/UpdateOrderItem.yaml'
 responses:
   '200':
     description: Успех

@@ -36,7 +36,13 @@ Order:
   $ref: './orders/schemas/Order.yaml'
 ShowCart:
   $ref: './cart/schemas/ShowCart.yaml'
+UpdateCart:
+  $ref: './cart/schemas/UpdateCart.yaml'
 OrderItem:
   $ref: './orderItems/schemas/OrderItem.yaml'
+CreateOrderItem:
+  $ref: './orderItems/schemas/CreateOrderItem.yaml'
+UpdateOrderItem:
+  $ref: './orderItems/schemas/UpdateOrderItem.yaml'
 Currency:
   $ref: './currencies/schemas/Currency.yaml'

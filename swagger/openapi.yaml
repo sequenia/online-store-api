@@ -5,14 +5,19 @@ info:
   description: Пример REST API интернет-магазина
 servers:
   - url: 'https://online-store.com/api/v1'
+security:
+  - BearerAuth: []
 paths:
   $ref: './_paths.yaml'
 components:
   parameters:
     $ref: './_parameters.yaml'
-  requestBodies:
-    $ref: './_requestBodies.yaml'
   examples:
     $ref: './_examples.yaml'
   schemas:
     $ref: './_schemas.yaml'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,22 +1,22 @@
 /products:
   get:
-    $ref: './products/paths/ProductIndex.yaml'
+    $ref: './products/paths/IndexProduct.yaml'
 /products/{productId}:
   get:
-    $ref: './products/paths/ProductShow.yaml'
+    $ref: './products/paths/ShowProduct.yaml'
 /cart:
   get:
-    $ref: './cart/paths/CartShow.yaml'
+    $ref: './cart/paths/ShowCart.yaml'
   put:
-    $ref: './cart/paths/CartUpdate.yaml'
-/cart_items:
+    $ref: './cart/paths/UpdateCart.yaml'
+/cart/items:
   post:
-    $ref: './cartItems/paths/CartItemCreate.yaml'
-/cart_items/{cartItemId}:
+    $ref: './cartItems/paths/CreateCartItem.yaml'
+/cart/items/{cartItemId}:
   put:
-    $ref: './cartItems/paths/CartItemUpdate.yaml'
+    $ref: './cartItems/paths/UpdateCartItem.yaml'
   delete:
-    $ref: './cartItems/paths/CartItemDelete.yaml'
+    $ref: './cartItems/paths/DeleteCartItem.yaml'
 /currencies:
   get:
-    $ref: './currencies/paths/CurrencyIndex.yaml'
+    $ref: './currencies/paths/IndexCurrency.yaml'

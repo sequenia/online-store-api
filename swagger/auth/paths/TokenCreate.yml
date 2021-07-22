@@ -1,0 +1,37 @@
+summary: Получение токена авторизации
+description: Возвращает токен авторизации. Если переданы данные пользователя, то аутентифицирует его и возвращает токен. Если данные пользователя не переданы, создаёт анонимного пользователя и возвращает токен.
+tags:
+  - Аутентификация
+requestBody:
+  description: Данные для получения токена авторизации
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          user:
+            type: object
+            description: Данные пользователя
+            properties:
+              email:
+                type: string
+                description: Электронная почта пользователя
+                example: email@email.email
+              password:
+                type: string
+                description: Пароль пользователя
+                example: password
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    cart:
+                      $ref: '../../cart/schemas/ShowCart.yaml'

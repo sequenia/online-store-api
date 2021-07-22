@@ -1,0 +1,11 @@
+type: object
+description: Информация о позиции в заказе
+properties:
+  variantId:
+    type: integer
+    description: Идентификатор варианта
+    example: 1
+  count:
+    type: integer
+    description: Количество
+    example: 3

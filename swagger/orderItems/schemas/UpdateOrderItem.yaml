@@ -1,0 +1,7 @@
+type: object
+description: Информация о позиции в заказе
+properties:
+  count:
+    type: integer
+    description: Количество
+    example: 3
