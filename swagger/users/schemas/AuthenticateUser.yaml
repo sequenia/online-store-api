@@ -1,0 +1,11 @@
+type: object
+description: Данные для аутентификации пользователя
+properties:
+  email:
+    type: string
+    description: Электронная почта пользователя
+    example: email@email.email
+  password:
+    type: string
+    description: Пароль пользователя
+    example: password

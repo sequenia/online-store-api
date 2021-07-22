@@ -1,3 +1,6 @@
+/tokens:
+  post:
+    $ref: './tokens/paths/CreateToken.yaml'
 /products:
   get:
     $ref: './products/paths/IndexProduct.yaml'

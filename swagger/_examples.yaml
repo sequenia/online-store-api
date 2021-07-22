@@ -1,2 +1,6 @@
 ErrorResponse:
   $ref: './base/examples/ErrorResponse.yaml'
+CreateTokenWithUser:
+  $ref: './tokens/examples/CreateTokenWithUser.yaml'
+CreateTokenWithoutUser:
+  $ref: './tokens/examples/CreateTokenWithoutUser.yaml'

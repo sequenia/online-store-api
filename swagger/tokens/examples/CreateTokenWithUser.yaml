@@ -1,0 +1,5 @@
+summary: Создание токена для пользователя по данным аутентификации
+value:
+  user:
+    email: email@email.email
+    password: password
