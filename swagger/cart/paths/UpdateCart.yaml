@@ -25,3 +25,17 @@ responses:
                   properties:
                     cart:
                       $ref: '../../cart/schemas/ShowCart.yaml'
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          WrongCurrency:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Валюта недоступна
+                value:
+                  errorCode: wrong_currency
+                  errorMessage: Выбранная валюта недоступна в магазине

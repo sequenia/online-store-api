@@ -37,3 +37,10 @@ responses:
                 value:
                   errorCode: product_not_found
                   errorMessage: Товар не найден
+          ProductNotAvailableForCurrency:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Товар недоступен для продажи в выбранной валюте
+                value:
+                  errorCode: product_not_available_for_currency
+                  errorMessage: Товар недоступен для продажи в выбранной валюте
