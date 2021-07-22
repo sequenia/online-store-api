@@ -1,0 +1,26 @@
+summary: Список валют
+description: Возвращает список доступных для выбора валют
+tags:
+  - Валюты
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    currencies:
+                      type: array
+                      description: Валюты
+                      items:
+                        $ref: '../../currencies/schemas/Currency.yaml'
+                    currentCurrency:
+                      allOf:
+                        - $ref: '../../currencies/schemas/Currency.yaml'
+                        - type: object
+                          description: Текущая валюта пользователя

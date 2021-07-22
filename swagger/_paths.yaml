@@ -17,3 +17,6 @@
     $ref: './cartItems/paths/CartItemUpdate.yaml'
   delete:
     $ref: './cartItems/paths/CartItemDelete.yaml'
+/currencies:
+  get:
+    $ref: './currencies/paths/CurrencyIndex.yaml'
