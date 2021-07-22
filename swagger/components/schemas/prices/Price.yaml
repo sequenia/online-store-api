@@ -7,7 +7,3 @@ allOf:
         type: string
         description: Значение цены в формате BigDecimal с точностю 8 (precision) и масштабом 2 (scale)
         example: "1234.56"
-      currencyCode:
-        type: string
-        description: Код валюты
-        example: RUB

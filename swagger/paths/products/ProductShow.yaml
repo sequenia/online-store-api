@@ -18,6 +18,11 @@ responses:
                   properties:
                     product:
                       $ref: '../../components/schemas/products/ShowProduct.yaml'
+                    currency:
+                      allOf:
+                        - $ref: '../../components/schemas/currencies/Currency.yaml'
+                        - type: object
+                          description: Текущая валюта пользователя
   '404':
     description: Не найдено
     content:

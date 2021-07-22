@@ -19,3 +19,8 @@ responses:
                       description: Список товаров
                       items:
                         $ref: '../../components/schemas/products/IndexProduct.yaml'
+                    currency:
+                      allOf:
+                        - $ref: '../../components/schemas/currencies/Currency.yaml'
+                        - type: object
+                          description: Текущая валюта пользователя

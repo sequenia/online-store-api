@@ -2,3 +2,5 @@ CreateCartItem:
   $ref: './cartItems/CreateCartItem.yaml'
 UpdateCartItem:
   $ref: './cartItems/UpdateCartItem.yaml'
+UpdateCart:
+  $ref: './cart/UpdateCart.yaml'

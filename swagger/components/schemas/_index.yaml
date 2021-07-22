@@ -38,3 +38,5 @@ ShowCart:
   $ref: './orders/ShowCart.yaml'
 OrderItem:
   $ref: './orderItems/OrderItem.yaml'
+Currency:
+  $ref: './currencies/Currency.yaml'

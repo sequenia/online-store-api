@@ -7,6 +7,8 @@
 /cart:
   get:
     $ref: './cart/CartShow.yaml'
+  put:
+    $ref: './cart/CartUpdate.yaml'
 /cart_items:
   post:
     $ref: './cartItems/CartItemCreate.yaml'

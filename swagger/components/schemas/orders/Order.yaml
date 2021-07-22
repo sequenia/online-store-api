@@ -11,7 +11,8 @@ allOf:
           Статус заказа. Возможные значения:
           - `cart` - Корзина. Для каждого пользователя может быть только один заказ к статусе `cart`.
         example: cart
-      currencyCode:
-        type: string
-        description: Код валюта, в которой оформлен заказ
-        example: RUB
+      currency:
+        allOf:
+          - $ref: '../currencies/Currency.yaml'
+          - type: object
+            description: Валюта, в которой оформлен заказ

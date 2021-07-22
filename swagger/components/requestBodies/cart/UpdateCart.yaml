@@ -1,0 +1,14 @@
+description: Данные для обновления корзины
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        cart:
+          type: object
+          description: Информация о корзине
+          properties:
+            currencyId:
+              type: integer
+              description: Идентификатор валюты
+              example: 1
