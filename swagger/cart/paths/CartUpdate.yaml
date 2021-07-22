@@ -1,0 +1,20 @@
+summary: Изменение корзины
+description: Запрос предназначен для обновления основной информации о корзине. Возвращает обновлённую корзину.
+tags:
+  - Корзина
+requestBody:
+  $ref: '../../cart/requestBodies/UpdateCart.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    cart:
+                      $ref: '../../cart/schemas/ShowCart.yaml'

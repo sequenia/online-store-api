@@ -1,8 +1,0 @@
-allOf:
-  - $ref: '../base/Object.yaml'
-  - type: object
-    properties:
-      name:
-        type: string
-        description: Название для отображения на клиенте
-        example: Футболка Красная L

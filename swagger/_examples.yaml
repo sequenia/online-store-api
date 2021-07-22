@@ -1,0 +1,2 @@
+ErrorResponse:
+  $ref: './base/examples/ErrorResponse.yaml'

@@ -1,0 +1,19 @@
+/products:
+  get:
+    $ref: './products/paths/ProductIndex.yaml'
+/products/{productId}:
+  get:
+    $ref: './products/paths/ProductShow.yaml'
+/cart:
+  get:
+    $ref: './cart/paths/CartShow.yaml'
+  put:
+    $ref: './cart/paths/CartUpdate.yaml'
+/cart_items:
+  post:
+    $ref: './cartItems/paths/CartItemCreate.yaml'
+/cart_items/{cartItemId}:
+  put:
+    $ref: './cartItems/paths/CartItemUpdate.yaml'
+  delete:
+    $ref: './cartItems/paths/CartItemDelete.yaml'

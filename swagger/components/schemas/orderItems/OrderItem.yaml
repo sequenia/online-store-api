@@ -1,9 +1,0 @@
-allOf:
-  - $ref: '../base/Object.yaml'
-  - type: object
-    description: Позиция в заказе - информация о конкретном варианте товара
-    properties:
-      count:
-        type: integer
-        description: Количество
-        example: 3

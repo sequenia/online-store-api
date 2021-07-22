@@ -1,9 +1,0 @@
-allOf:
-  - $ref: '../base/Object.yaml'
-  - type: object
-    description: Товар
-    properties:
-      name:
-        type: string
-        description: Название для отображения на клиенте
-        example: Футболка

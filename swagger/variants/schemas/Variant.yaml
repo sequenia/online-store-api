@@ -1,0 +1,8 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    properties:
+      name:
+        type: string
+        description: Название для отображения на клиенте
+        example: Футболка Красная L

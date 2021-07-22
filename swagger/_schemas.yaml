@@ -1,0 +1,42 @@
+ErrorResponse:
+  $ref: './base/schemas/ErrorResponse.yaml'
+SuccessResponse:
+  $ref: './base/schemas/SuccessResponse.yaml'
+Object:
+  $ref: './base/schemas/Object.yaml'
+Property:
+  $ref: './properties/schemas/Property.yaml'
+PropertyValue:
+  $ref: './propertyValues/schemas/PropertyValue.yaml'
+Option:
+  $ref: './options/schemas/Option.yaml'
+OptionValue:
+  $ref: './optionValues/schemas/OptionValue.yaml'
+OptionValueMeta:
+  $ref: './optionValueMetas/schemas/OptionValueMeta.yaml'
+Product:
+  $ref: './products/schemas/Product.yaml'
+ShowProduct:
+  $ref: './products/schemas/ShowProduct.yaml'
+IndexProduct:
+  $ref: './products/schemas/IndexProduct.yaml'
+Variant:
+  $ref: './variants/schemas/Variant.yaml'
+MasterVariant:
+  $ref: './variants/schemas/MasterVariant.yaml'
+RegularVariant:
+  $ref: './variants/schemas/RegularVariant.yaml'
+Price:
+  $ref: './prices/schemas/Price.yaml'
+VariantPrice:
+  $ref: './prices/schemas/VariantPrice.yaml'
+OrderItemPrice:
+  $ref: './prices/schemas/OrderItemPrice.yaml'
+Order:
+  $ref: './orders/schemas/Order.yaml'
+ShowCart:
+  $ref: './cart/schemas/ShowCart.yaml'
+OrderItem:
+  $ref: './orderItems/schemas/OrderItem.yaml'
+Currency:
+  $ref: './currencies/schemas/Currency.yaml'

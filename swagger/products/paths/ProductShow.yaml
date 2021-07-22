@@ -1,0 +1,39 @@
+summary: Информация о товаре
+description: Возвращает детальную инормацию о товаре по идентификатору
+tags:
+  - Товары
+parameters:
+  - $ref: '../../products/parameters/ProductId.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    product:
+                      $ref: '../../products/schemas/ShowProduct.yaml'
+                    currency:
+                      allOf:
+                        - $ref: '../../currencies/schemas/Currency.yaml'
+                        - type: object
+                          description: Текущая валюта пользователя
+  '404':
+    description: Не найдено
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          ProductNotFound:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Товар не найден
+                value:
+                  errorCode: product_not_found
+                  errorMessage: Товар не найден

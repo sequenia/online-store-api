@@ -1,0 +1,6 @@
+CreateCartItem:
+  $ref: './cartItems/requestBodies/CreateCartItem.yaml'
+UpdateCartItem:
+  $ref: './cartItems/requestBodies/UpdateCartItem.yaml'
+UpdateCart:
+  $ref: './cart/requestBodies/UpdateCart.yaml'
