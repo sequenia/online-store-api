@@ -46,5 +46,15 @@ UpdateOrderItem:
   $ref: './orderItems/schemas/UpdateOrderItem.yaml'
 Currency:
   $ref: './currencies/schemas/Currency.yaml'
-AuthenticateUser:
-  $ref: './users/schemas/AuthenticateUser.yaml'
+LoginUser:
+  $ref: './user/schemas/LoginUser.yaml'
+CurrentUser:
+  $ref: './user/schemas/CurrentUser.yaml'
+ShowCurrentUser:
+  $ref: './user/schemas/ShowCurrentUser.yaml'
+RegisterUser:
+  $ref: './user/schemas/RegisterUser.yaml'
+Token:
+  $ref: './tokens/schemas/Token.yaml'
+Profile:
+  $ref: './profiles/schemas/Profile.yaml'

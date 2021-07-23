@@ -1,0 +1,13 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Личные данные пользователя
+    properties:
+      firstName:
+        type: string
+        description: Имя
+        example: Гарри
+      lastName:
+        type: string
+        description: Фамилия
+        example: Поттер

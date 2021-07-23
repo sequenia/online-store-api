@@ -1,6 +1,12 @@
-/tokens:
+/user/login:
   post:
-    $ref: './tokens/paths/CreateToken.yaml'
+    $ref: './user/paths/Login.yaml'
+/user/register:
+  post:
+    $ref: './user/paths/Register.yaml'
+/user/registerAnonymously:
+  post:
+    $ref: './user/paths/RegisterAnonymously.yaml'
 /products:
   get:
     $ref: './products/paths/IndexProduct.yaml'

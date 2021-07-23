@@ -4,7 +4,7 @@ properties:
   email:
     type: string
     description: Электронная почта пользователя
-    example: email@email.email
+    example: harrypotter@hogwarts.com
   password:
     type: string
     description: Пароль пользователя

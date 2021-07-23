@@ -1,0 +1,22 @@
+allOf:
+  - $ref: '../../base/examples/ErrorResponse.yaml'
+  - summary: Ошибка валидации полей
+    description: Пример ошибки валидации полей. Перечислены все поля и вложенные объекты, в которых может произойти ошибка, но реальные ошибки могут отличаться от указанных в примере в зависимости от переданных в запрос данных.
+    value:
+      errorCode: not_valid
+      errorMessage: Проверьте введенные данные
+      errors:
+        fields:
+          email:
+            - Неверный формат
+          password:
+            - Слишком простой
+          passwordConfirmation:
+            - Не совпадает с паролем
+        objects:
+          profile:
+            fields:
+              firstName:
+                - Слишком длинное
+              lastName:
+                - Заполните это поле

@@ -1,21 +1,17 @@
-summary: Получение токена авторизации
-description: Возвращает токен авторизации. Если переданы данные пользователя, то аутентифицирует его и возвращает токен. Если данные пользователя не переданы, создаёт анонимного пользователя и возвращает токен.
+summary: Аутентификация
+description: Аутентифицирует пользователя и выдаёт токен авторизации
 tags:
   - Аутентификация
+security: []
 requestBody:
-  description: Данные для получения токена авторизации
+  description: Данные для аутентификации
   content:
     application/json:
       schema:
         type: object
         properties:
           user:
-            $ref: '../../users/schemas/AuthenticateUser.yaml'
-      examples:
-        WithUser:
-          $ref: '../../tokens/examples/CreateTokenWithUser.yaml'
-        WithoutUser:
-          $ref: '../../tokens/examples/CreateTokenWithoutUser.yaml'
+            $ref: '../../user/schemas/LoginUser.yaml'
 responses:
   '200':
     description: Успех
@@ -28,8 +24,10 @@ responses:
               properties:
                 data:
                   properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+                    token:
+                      $ref: '../../tokens/schemas/Token.yaml'
+                    user:
+                      $ref: '../../user/schemas/ShowCurrentUser.yaml'
   '422':
     description: Ошибка в переданных данных
     content:

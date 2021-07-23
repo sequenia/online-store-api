@@ -1,0 +1,39 @@
+summary: Регистрация
+description: Регистрация нового пользователя и выдаёт токен авторизации
+tags:
+  - Регистрация
+security: []
+requestBody:
+  description: Данные для регистрации
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          user:
+            $ref: '../../user/schemas/RegisterUser.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    token:
+                      $ref: '../../tokens/schemas/Token.yaml'
+                    user:
+                      $ref: '../../user/schemas/ShowCurrentUser.yaml'
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          NotValid:
+            $ref: '../../user/examples/RegisterNotValidErrorResponse.yaml'
