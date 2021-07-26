@@ -19,5 +19,10 @@
 1. [Структура данных](docs/data_structure.md)
 2. [REST](docs/rest.md)
 3. [Проблема N+1 запросов](docs/n_plus_one.md)
-4. [Товары](docs/products.md)
-5. [Авторизация](docs/authorization.md)
+4. [Авторизация](docs/authorization.md)
+5. [Товары](docs/products.md)
+
+
+// TODO Прототипы товаров
+
+// TODO Фильтрация каталога
