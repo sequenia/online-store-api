@@ -4,6 +4,7 @@ description: |
 
   Возможные коды ошибок:
   - `wrong_currency` - Валюта недоступна
+  - `unauthorized` - требуется авторизация
 tags:
   - Корзина
 requestBody:
@@ -43,3 +44,5 @@ responses:
                 value:
                   errorCode: wrong_currency
                   errorMessage: Выбранная валюта недоступна в магазине
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

@@ -5,6 +5,7 @@ description: |
   Возможные коды ошибок:
   - `cart_item_not_found` - Позиция корзины не найдена
   - `wrong_count` - Неверное количество
+  - `unauthorized` - требуется авторизация
 tags:
   - Корзина
 parameters:
@@ -60,3 +61,5 @@ responses:
                 value:
                   errorCode: wrong_count
                   errorMessage: Количество должно быть положительным
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

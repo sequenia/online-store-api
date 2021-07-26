@@ -5,6 +5,7 @@ description: |
   Возможные коды ошибок:
   - `product_not_found` - Товар не найден
   - `variant_not_found` - Вариант не найден
+  - `unauthorized` - требуется авторизация
 tags:
   - Корзина
 requestBody:
@@ -51,3 +52,5 @@ responses:
                 value:
                   errorCode: variant_not_found
                   errorMessage: Не удалось добавить вариант товара в корзину, так как он отсутствует в магазине
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

@@ -4,6 +4,7 @@ description: |
 
   Возможные коды ошибок:
   - `cart_item_not_found` - Позиция корзины не найдена
+  - `unauthorized` - требуется авторизация
 tags:
   - Корзина
 parameters:
@@ -36,3 +37,5 @@ responses:
                 value:
                   errorCode: cart_item_not_found
                   errorMessage: Товар уже удалён из корзины
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
