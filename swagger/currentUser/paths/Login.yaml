@@ -1,7 +1,7 @@
 summary: Аутентификация
 description: Аутентифицирует пользователя и выдаёт токен авторизации
 tags:
-  - Аутентификация
+  - Текущий пользователь
 security: []
 requestBody:
   description: Данные для аутентификации
@@ -11,7 +11,7 @@ requestBody:
         type: object
         properties:
           user:
-            $ref: '../../user/schemas/LoginUser.yaml'
+            $ref: '../../currentUser/schemas/LoginUser.yaml'
 responses:
   '200':
     description: Успех
@@ -24,10 +24,10 @@ responses:
               properties:
                 data:
                   properties:
-                    token:
-                      $ref: '../../tokens/schemas/Token.yaml'
+                    accessToken:
+                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
                     user:
-                      $ref: '../../user/schemas/ShowCurrentUser.yaml'
+                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
   '422':
     description: Ошибка в переданных данных
     content:

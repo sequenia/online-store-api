@@ -1,7 +1,7 @@
 summary: Регистрация
 description: Регистрация нового пользователя и выдаёт токен авторизации
 tags:
-  - Регистрация
+  - Текущий пользователь
 security: []
 requestBody:
   description: Данные для регистрации
@@ -11,7 +11,7 @@ requestBody:
         type: object
         properties:
           user:
-            $ref: '../../user/schemas/RegisterUser.yaml'
+            $ref: '../../currentUser/schemas/RegisterUser.yaml'
 responses:
   '200':
     description: Успех
@@ -24,10 +24,10 @@ responses:
               properties:
                 data:
                   properties:
-                    token:
-                      $ref: '../../tokens/schemas/Token.yaml'
+                    accessToken:
+                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
                     user:
-                      $ref: '../../user/schemas/ShowCurrentUser.yaml'
+                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
   '422':
     description: Ошибка в переданных данных
     content:
@@ -36,4 +36,4 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           NotValid:
-            $ref: '../../user/examples/RegisterNotValidErrorResponse.yaml'
+            $ref: '../../currentUser/examples/RegisterNotValidErrorResponse.yaml'

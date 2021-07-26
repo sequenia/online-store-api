@@ -1,0 +1,18 @@
+summary: Информация о текущем пользователе
+description: Возвращает детальную инормацию о текущем пользователе
+tags:
+  - Текущий пользователь
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    user:
+                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
