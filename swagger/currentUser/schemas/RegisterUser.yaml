@@ -1,0 +1,27 @@
+type: object
+description: Данные для регистрации пользователя
+properties:
+  email:
+    type: string
+    description: Электронная почта пользователя
+    example: harrypotter@hogwarts.com
+  password:
+    type: string
+    description: Пароль пользователя
+    example: password
+  passwordConfirmation:
+    type: string
+    description: Подтверждение пароля
+    example: password
+  profile:
+    type: object
+    description: Личные данные пользователя
+    properties:
+      firstName:
+        type: string
+        description: Имя
+        example: Гарри
+      lastName:
+        type: string
+        description: Фамилия
+        example: Поттер

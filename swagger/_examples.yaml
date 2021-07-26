@@ -1,0 +1,4 @@
+ErrorResponse:
+  $ref: './base/examples/ErrorResponse.yaml'
+RegisterNotValidErrorResponse:
+  $ref: './currentUser/examples/RegisterNotValidErrorResponse.yaml'

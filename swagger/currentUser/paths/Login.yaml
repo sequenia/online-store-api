@@ -1,0 +1,57 @@
+summary: Аутентификация
+description: |
+  Аутентифицирует пользователя и выдаёт токен авторизации.
+
+  Если в заголовках запроса передан Access Token анонимного пользователя, то в случае успеха будет произведено объединение корзин анонимного пользователя и существующего, под которым произвелась аутентификация.
+
+  Возможные коды ошибок:
+  - `email_not_found` - Аккаунт по email не найден
+  - `wrong_password` - Неверный пароль
+tags:
+  - Текущий пользователь
+requestBody:
+  description: Данные для аутентификации
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          user:
+            $ref: '../../currentUser/schemas/LoginUser.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    accessToken:
+                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
+                    user:
+                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          EmailNotFound:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Аккаунт по email не найден
+                value:
+                  errorCode: email_not_found
+                  errorMessage: Пользователь с таким email не существует
+          WrongPassword:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Неверный пароль
+                value:
+                  errorCode: wrong_password
+                  errorMessage: Неверный пароль

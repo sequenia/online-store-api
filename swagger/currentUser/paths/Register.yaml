@@ -1,0 +1,49 @@
+summary: Регистрация
+description: |
+  Регистрирует нового пользователя и выдаёт токен авторизации.
+
+  Если в заголовках запроса передан Access Token анонимного пользователя, то корзина анонимного пользователя станет корзиной нового зарегистрированного пользователя.
+
+  Возможные коды ошибок:
+  - `not_valid` - Ошибка валидации полей
+tags:
+  - Текущий пользователь
+requestBody:
+  description: Данные для регистрации
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          user:
+            $ref: '../../currentUser/schemas/RegisterUser.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    accessToken:
+                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
+                    user:
+                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          NotValid:
+            allOf:
+              - $ref: '../../currentUser/examples/RegisterNotValidErrorResponse.yaml'
+              - summary: Ошибка валидации полей
+                value:
+                  errorCode: not_valid
+                  errorMessage: Проверьте введенные данные

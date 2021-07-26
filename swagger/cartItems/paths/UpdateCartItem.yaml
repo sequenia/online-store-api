@@ -1,0 +1,65 @@
+summary: Редактирование позиции в корзине
+description: |
+  Изменяет информацию о позиции в корзине по идентификатору позиции. Возвращает в ответ обновлённую корзину.
+
+  Возможные коды ошибок:
+  - `cart_item_not_found` - Позиция корзины не найдена
+  - `wrong_count` - Неверное количество
+  - `unauthorized` - требуется авторизация
+tags:
+  - Корзина
+parameters:
+  - $ref: '../../cartItems/parameters/CartItemId.yaml'
+requestBody:
+  description: Данные, которые нужно задать в позицию корзины
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          item:
+            $ref: '../../orderItems/schemas/UpdateOrderItem.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    cart:
+                      $ref: '../../cart/schemas/ShowCart.yaml'
+  '404':
+    description: Ошибка "Не найдено"
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          CartItemNotFound:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Позиция корзины не найдена
+                value:
+                  errorCode: cart_item_not_found
+                  errorMessage: Не удалось изменить данные, так как товар отсутствует в корзине
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          WrongCount:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Неверное количество
+                value:
+                  errorCode: wrong_count
+                  errorMessage: Количество должно быть положительным
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

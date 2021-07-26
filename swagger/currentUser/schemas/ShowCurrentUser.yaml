@@ -1,0 +1,6 @@
+allOf:
+  - $ref: '../../currentUser/schemas/CurrentUser.yaml'
+  - type: object
+    properties:
+      profile:
+        $ref: '../../profiles/schemas/Profile.yaml'

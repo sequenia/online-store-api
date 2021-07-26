@@ -1,0 +1,49 @@
+allOf:
+  - $ref: '../../orders/schemas/Order.yaml'
+  - type: object
+    properties:
+      currency:
+        allOf:
+          - $ref: '../../currencies/schemas/Currency.yaml'
+          - type: object
+            description: Валюта, в которой оформлен заказ
+      items:
+        type: array
+        description: Позиции корзины
+        items:
+          allOf:
+            - $ref: '../../orderItems/schemas/OrderItem.yaml'
+            - type: object
+              properties:
+                price:
+                  $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                variant:
+                  allOf:
+                    - $ref: '../../variants/schemas/Variant.yaml'
+                    - type: object
+                      properties:
+                        product:
+                          allOf:
+                            - $ref: '../../products/schemas/Product.yaml'
+                            - type: object
+                              properties:
+                                propertyValues:
+                                  type: array
+                                  description: Значения свойств товара
+                                  items:
+                                    allOf:
+                                      - $ref: '../../propertyValues/schemas/PropertyValue.yaml'
+                                      - type: object
+                                        properties:
+                                          property:
+                                            $ref: '../../properties/schemas/Property.yaml'
+                        optionValues:
+                          type: array
+                          description: Значения всех опций товара текущего варианта
+                          items:
+                            allOf:
+                              - $ref: '../../optionValues/schemas/OptionValue.yaml'
+                              - type: object
+                                properties:
+                                  option:
+                                    $ref: '../../options/schemas/Option.yaml'

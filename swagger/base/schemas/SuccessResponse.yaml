@@ -1,0 +1,19 @@
+type: object
+description: Успешный ответ сервера
+properties:
+  success:
+    type: boolean
+    description: Статус ответа. Всегда равен `true` для успешного ответа
+    default: true
+  data:
+    type: object
+    description: Данные ответа. Содержимое варьируется в зависимости от запроса
+  errorCode:
+    type: string
+    example: null
+  errorMessage:
+    type: string
+    example: null
+  errors:
+    type: object
+    example: null

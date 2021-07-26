@@ -1,0 +1,34 @@
+/currentUser:
+  get:
+    $ref: './currentUser/paths/ShowCurrentUser.yaml'
+/currentUser/login:
+  post:
+    $ref: './currentUser/paths/Login.yaml'
+/currentUser/register:
+  post:
+    $ref: './currentUser/paths/Register.yaml'
+/currentUser/registerAnonymously:
+  post:
+    $ref: './currentUser/paths/RegisterAnonymously.yaml'
+/products:
+  get:
+    $ref: './products/paths/IndexProduct.yaml'
+/products/{productId}:
+  get:
+    $ref: './products/paths/ShowProduct.yaml'
+/cart:
+  get:
+    $ref: './cart/paths/ShowCart.yaml'
+  put:
+    $ref: './cart/paths/UpdateCart.yaml'
+/cart/items:
+  post:
+    $ref: './cartItems/paths/CreateCartItem.yaml'
+/cart/items/{cartItemId}:
+  put:
+    $ref: './cartItems/paths/UpdateCartItem.yaml'
+  delete:
+    $ref: './cartItems/paths/DeleteCartItem.yaml'
+/currencies:
+  get:
+    $ref: './currencies/paths/IndexCurrency.yaml'

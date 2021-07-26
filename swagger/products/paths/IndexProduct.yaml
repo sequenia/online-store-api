@@ -1,0 +1,26 @@
+summary: Список товаров
+description: Возвращает список товаров
+tags:
+  - Товары
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    products:
+                      type: array
+                      description: Список товаров
+                      items:
+                        $ref: '../../products/schemas/IndexProduct.yaml'
+                    currency:
+                      allOf:
+                        - $ref: '../../currencies/schemas/Currency.yaml'
+                        - type: object
+                          description: Текущая валюта пользователя

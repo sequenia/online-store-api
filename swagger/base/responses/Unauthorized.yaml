@@ -1,0 +1,13 @@
+description: Требуется авторизация
+content:
+  application/json:
+    schema:
+      $ref: '../../base/schemas/ErrorResponse.yaml'
+    examples:
+      Unauthorized:
+        allOf:
+          - $ref: '../../base/examples/ErrorResponse.yaml'
+          - summary: Требуется авторизация
+            value:
+              errorCode: unauthorized
+              errorMessage: Войдите с помощью логина и пароля или зарегистрируйтесь

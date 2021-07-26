@@ -1,0 +1,14 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Информация о валюте, которую поддерживает магазин
+    properties:
+      code:
+        type: string
+        description: |
+          [ISO-код](https://ru.wikipedia.org/wiki/ISO_4217) валюты
+        example: RUB
+      presentation:
+        type: string
+        description: Название валюты для отображения на клиенте
+        example: Руб, ₽

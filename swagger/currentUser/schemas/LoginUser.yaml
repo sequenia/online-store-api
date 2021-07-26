@@ -1,0 +1,11 @@
+type: object
+description: Данные для аутентификации пользователя
+properties:
+  email:
+    type: string
+    description: Электронная почта пользователя
+    example: harrypotter@hogwarts.com
+  password:
+    type: string
+    description: Пароль пользователя
+    example: password
