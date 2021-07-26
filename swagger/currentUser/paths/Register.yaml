@@ -36,4 +36,9 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           NotValid:
-            $ref: '../../currentUser/examples/RegisterNotValidErrorResponse.yaml'
+            allOf:
+              - $ref: '../../currentUser/examples/RegisterNotValidErrorResponse.yaml'
+              - summary: Ошибка валидации полей
+                value:
+                  errorCode: not_valid
+                  errorMessage: Проверьте введенные данные
