@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './ShippingRate.yaml'
+  - type: object
+    properties:
+      shippingMethod:
+        $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'

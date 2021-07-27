@@ -1,0 +1,7 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Стоимость способа получения заказа
+    properties:
+      price:
+        $ref: '../../prices/schemas/Price.yaml'

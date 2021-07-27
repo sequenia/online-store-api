@@ -1,0 +1,13 @@
+summary: Обновление информации для оформления заказа
+description: Обновляет информацию для оформления текущего заказа
+tags:
+  - Оформление заказа
+requestBody:
+  description: Данные для оформления заказа
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          order:
+            $ref: '../../orders/schemas/UpdateOrderForCheckout.yaml'

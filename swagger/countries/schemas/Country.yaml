@@ -1,0 +1,9 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Страна
+    properties:
+      name:
+        type: string
+        description: Название
+        example: Россия

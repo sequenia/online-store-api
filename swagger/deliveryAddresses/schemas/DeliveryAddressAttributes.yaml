@@ -1,0 +1,19 @@
+type: object
+description: Адрес доставки
+properties:
+  countryId:
+    type: integer
+    description: Идентификатор страны
+    example: 1
+  city:
+    type: string
+    description: Город
+    example: Москва
+  line1:
+    type: string
+    description: Улица, дом, квартира
+    example: Улица, дом, квартира
+  comment:
+    type: string
+    description: Комментарий к адресу
+    example: "Лифт не работает"

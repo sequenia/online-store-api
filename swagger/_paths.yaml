@@ -32,3 +32,12 @@
 /currencies:
   get:
     $ref: './currencies/paths/IndexCurrency.yaml'
+/checkout:
+  put:
+    $ref: './checkout/paths/UpdateCheckout.yaml'
+/checkout/shipping_rates:
+  get:
+    $ref: './checkout/paths/IndexCheckoutShippingRates.yaml'
+/countries:
+  get:
+    $ref: './countries/paths/IndexCountry.yaml'

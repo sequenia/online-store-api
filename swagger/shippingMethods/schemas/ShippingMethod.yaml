@@ -1,0 +1,20 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Способ получения заказа
+    properties:
+      name:
+        type: string
+        description: Название
+        example: Курьером до двери
+      type:
+        type: string
+        description: |
+          Тип способа получения заказа.
+
+          Возможные значения:
+          - `pickup` - самовывоз
+          - `delivery` - доставка
+        enum:
+          - pickup
+          - delivery

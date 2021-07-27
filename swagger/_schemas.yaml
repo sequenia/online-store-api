@@ -34,6 +34,8 @@ OrderItemPrice:
   $ref: './prices/schemas/OrderItemPrice.yaml'
 Order:
   $ref: './orders/schemas/Order.yaml'
+UpdateOrderForCheckout:
+  $ref: './orders/schemas/UpdateOrderForCheckout.yaml'
 ShowCart:
   $ref: './cart/schemas/ShowCart.yaml'
 UpdateCart:
@@ -58,3 +60,17 @@ AccessToken:
   $ref: './accessTokens/schemas/AccessToken.yaml'
 Profile:
   $ref: './profiles/schemas/Profile.yaml'
+DeliveryAddressAttributes:
+  $ref: './deliveryAddresses/schemas/DeliveryAddressAttributes.yaml'
+DeliveryAddress:
+  $ref: './deliveryAddresses/schemas/DeliveryAddress.yaml'
+Country:
+  $ref: './countries/schemas/Country.yaml'
+Person:
+  $ref: './people/schemas/PersonAttributes.yaml'
+ShippingRate:
+  $ref: './shippingRates/schemas/ShippingRate.yaml'
+IndexShippingRate:
+  $ref: './shippingRates/schemas/IndexShippingRate.yaml'
+DeliveryMethod:
+  $ref: './shippingMethods/schemas/ShippingMethod.yaml'

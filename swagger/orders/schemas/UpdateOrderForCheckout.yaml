@@ -1,0 +1,25 @@
+type: object
+description: Данные заказа для его оформления
+properties:
+  customer:
+    allOf:
+      - $ref: '../../people/schemas/PersonAttributes.yaml'
+      - type: object
+        description: Покупатель
+  recipient:
+    allOf:
+      - $ref: '../../people/schemas/PersonAttributes.yaml'
+      - type: object
+        description: Получатель заказа
+  shipping:
+    type: object
+    description: Информация о получении заказа
+    properties:
+      rateId:
+        type: integer
+        decription: Идентификатор стоимости способа получения заказа
+        example: 1
+      deliveryAddress:
+        allOf:
+          - $ref: '../../deliveryAddresses/schemas/DeliveryAddressAttributes.yaml'
+          - description: Адрес доставки. Указывается для способа получения заказа с типом `delivery`.
