@@ -1,0 +1,28 @@
+allOf:
+  - $ref: './Order.yaml'
+  - type: object
+    properties:
+      customer:
+        allOf:
+          - $ref: '../../people/schemas/Person.yaml'
+          - type: object
+            description: Покупатель
+      recipient:
+        allOf:
+          - $ref: '../../people/schemas/Person.yaml'
+          - type: object
+            description: Получатель заказа
+      shipping:
+        allOf:
+          - $ref: '../../shippings/schemas/Shipping.yaml'
+          - type: object
+            properties:
+              rate:
+                allOf:
+                  - $ref: '../../shippingRates/schemas/ShippingRate.yaml'
+                  - type: object
+                    properties:
+                      shippingMethod:
+                        $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'
+              deliveryAddress:
+                $ref: '../../deliveryAddresses/schemas/DeliveryAddress.yaml'

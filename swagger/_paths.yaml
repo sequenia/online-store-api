@@ -33,6 +33,8 @@
   get:
     $ref: './currencies/paths/IndexCurrency.yaml'
 /checkout:
+  get:
+    $ref: './checkout/paths/ShowCheckout.yaml'
   put:
     $ref: './checkout/paths/UpdateCheckout.yaml'
 /checkout/shipping_rates:

@@ -23,3 +23,7 @@ properties:
         allOf:
           - $ref: '../../deliveryAddresses/schemas/DeliveryAddressAttributes.yaml'
           - description: Адрес доставки. Указывается для способа получения заказа с типом `delivery`.
+      pickupPointId:
+        type: integer
+        description: Идентификатор пункта самовывоза. Указывается для способа получения заказа с типом `pickup`
+        example: 1

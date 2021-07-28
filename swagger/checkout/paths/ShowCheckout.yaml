@@ -1,0 +1,18 @@
+summary: Информация об оформлении текущего заказа
+description: Возвращает детальную информацию об оформлении текущего заказа
+tags:
+  - Оформление заказа
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    order:
+                      $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'

@@ -1,5 +1,14 @@
 summary: Обновление информации для оформления заказа
-description: Обновляет информацию для оформления текущего заказа
+description: |
+  Обновляет информацию для оформления текущего заказа.
+
+  Можно независимо обновлять разные данные заказа отдельными запросами, передавая только соответствующие ключи, например:
+  - Для обновления покупателя передать только ключ `order.customer`.
+  - Для обновления получателя передать только ключ `order.recipient`.
+  - Для выбора способа получения заказа передать только ключ `order.delivery.rateId`.
+  - и т.д.
+
+  Валидироваться будут только те данные, ключи которых переданы в запрос.
 tags:
   - Оформление заказа
 requestBody:
@@ -10,4 +19,18 @@ requestBody:
         type: object
         properties:
           order:
-            $ref: '../../orders/schemas/UpdateOrderForCheckout.yaml'
+            $ref: '../../orders/schemas/UpdateCheckoutOrder.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    order:
+                      $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'

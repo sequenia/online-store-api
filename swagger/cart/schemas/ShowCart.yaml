@@ -1,5 +1,5 @@
 allOf:
-  - $ref: '../../orders/schemas/Order.yaml'
+  - $ref: '../../cart/schemas/Cart.yaml'
   - type: object
     properties:
       currency:
