@@ -1,5 +1,9 @@
 summary: Стоимости способов получения заказа
-description: Возвращает информацию о стоимости для всех доступных способов получения заказа в рамках текущего заказа
+description: |
+  Возвращает информацию о стоимости для всех доступных способов получения заказа в рамках текущего заказа.
+
+  Возможные коды ошибок:
+  - `unauthorized` - требуется авторизация
 tags:
   - Оформление заказа
 responses:
@@ -18,3 +22,5 @@ responses:
                       type: array
                       items:
                         $ref: '../../shippingRates/schemas/IndexShippingRate.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

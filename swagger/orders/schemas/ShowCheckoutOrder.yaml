@@ -26,3 +26,10 @@ allOf:
                         $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'
               deliveryAddress:
                 $ref: '../../deliveryAddresses/schemas/DeliveryAddress.yaml'
+              pickupPoint:
+                allOf:
+                  - $ref: '../../pickupPoints/schemas/PickupPoint.yaml'
+                  - type: object
+                    properties:
+                      location:
+                        $ref: '../../locations/schemas/Location.yaml'

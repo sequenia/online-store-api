@@ -1,0 +1,42 @@
+allOf:
+  - $ref: '../../base/examples/NotValidErrorResponse.yaml'
+  - value:
+      errors:
+        objects:
+          customer:
+            fields:
+              firstName:
+                - Ошибка
+              lastName:
+                - Ошибка
+              email:
+                - Ошибка
+              phone:
+                - Ошибка
+          recipient:
+            fields:
+              firstName:
+                - Ошибка
+              lastName:
+                - Ошибка
+              email:
+                - Ошибка
+              phone:
+                - Ошибка
+          shipping:
+            fields:
+              rateId:
+                - Ошибка
+              pickupPointId:
+                - Ошибка
+            objects:
+              deliveryAddress:
+                fields:
+                  countryId:
+                    - Ошибка
+                  city:
+                    - Ошибка
+                  line1:
+                    - Ошибка
+                  comment:
+                    - Ошибка

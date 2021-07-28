@@ -5,6 +5,7 @@ description: |
   Возможные коды ошибок:
   - `product_not_found` - Товар не найден
   - `variant_not_found` - Вариант не найден
+  - `wrong_count` - Неверное количество
   - `unauthorized` - требуется авторизация
 tags:
   - Корзина
@@ -52,5 +53,19 @@ responses:
                 value:
                   errorCode: variant_not_found
                   errorMessage: Не удалось добавить вариант товара в корзину, так как он отсутствует в магазине
+  '422':
+    description: Ошибка в переданных данных
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          WrongCount:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Неверное количество
+                value:
+                  errorCode: wrong_count
+                  errorMessage: Количество должно быть положительным
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'

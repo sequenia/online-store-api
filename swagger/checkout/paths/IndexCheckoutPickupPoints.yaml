@@ -4,6 +4,7 @@ description: |
 
   Возможные коды ошибок:
   - `shipping_method_not_found` - Способ получения заказа не найден
+  - `unauthorized` - требуется авторизация
 tags:
   - Оформление заказа
 parameters:
@@ -44,3 +45,5 @@ responses:
                 value:
                   errorCode: shipping_method_not_found
                   errorMessage: Выбранный способ получения заказа недоступен
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
