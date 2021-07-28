@@ -1,0 +1,13 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Географическая точка
+    properties:
+      latitude:
+        type: float
+        description: Широта
+        example: 51.509865
+      longitude:
+        type: float
+        description: Долгота
+        example: -0.118092

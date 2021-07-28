@@ -29,9 +29,6 @@
     $ref: './cartItems/paths/UpdateCartItem.yaml'
   delete:
     $ref: './cartItems/paths/DeleteCartItem.yaml'
-/currencies:
-  get:
-    $ref: './currencies/paths/IndexCurrency.yaml'
 /checkout:
   get:
     $ref: './checkout/paths/ShowCheckout.yaml'
@@ -40,6 +37,12 @@
 /checkout/shipping_rates:
   get:
     $ref: './checkout/paths/IndexCheckoutShippingRates.yaml'
+/checkout/pickup_points:
+  get:
+    $ref: './checkout/paths/IndexCheckoutPickupPoints.yaml'
 /countries:
   get:
     $ref: './countries/paths/IndexCountry.yaml'
+/currencies:
+  get:
+    $ref: './currencies/paths/IndexCurrency.yaml'

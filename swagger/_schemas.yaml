@@ -82,3 +82,7 @@ DeliveryMethod:
   $ref: './shippingMethods/schemas/ShippingMethod.yaml'
 Shipping:
   $ref: './shippings/schemas/Shipping.yaml'
+Location:
+  $ref: './locations/schemas/Location.yaml'
+PickupPoint:
+  $ref: './pickupPoints/schemas/PickupPoint.yaml'

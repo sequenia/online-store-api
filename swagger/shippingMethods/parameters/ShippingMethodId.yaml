@@ -1,0 +1,7 @@
+name: shippingMethodId
+in: query
+description: Идентификатор способа получения заказа
+required: true
+schema:
+  type: integer
+  example: 1
