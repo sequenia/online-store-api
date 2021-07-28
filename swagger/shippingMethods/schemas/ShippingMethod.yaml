@@ -6,7 +6,7 @@ allOf:
       name:
         type: string
         description: Название
-        example: Курьером до двери
+        example: Совой в руки
       type:
         type: string
         description: |

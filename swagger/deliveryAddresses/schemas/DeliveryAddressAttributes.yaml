@@ -8,12 +8,13 @@ properties:
   city:
     type: string
     description: Город
-    example: Москва
+    example: Литтл Уингинг
   line1:
     type: string
     description: Улица, дом, квартира
-    example: Улица, дом, квартира
+    example: ул. Тисовая, д. 4
   comment:
     type: string
     description: Комментарий к адресу
-    example: "Лифт не работает"
+    example: В чулан под лестницей
+

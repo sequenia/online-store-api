@@ -6,7 +6,7 @@ allOf:
       name:
         type: string
         description: Название
-        example: Бокс в Косом Переулке
+        example: Magic Box в "Всё для квиддича"
       address:
         type: string
         description: Полный адрес точки самовывоза

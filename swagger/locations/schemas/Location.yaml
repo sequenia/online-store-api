@@ -6,8 +6,8 @@ allOf:
       latitude:
         type: float
         description: Широта
-        example: 51.509865
+        example: 51.215485
       longitude:
         type: float
         description: Долгота
-        example: -0.118092
+        example: -0.631027

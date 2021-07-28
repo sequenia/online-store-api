@@ -8,11 +8,11 @@ properties:
   password:
     type: string
     description: Пароль пользователя
-    example: password
+    example: alohomora
   passwordConfirmation:
     type: string
     description: Подтверждение пароля
-    example: password
+    example: alohomora
   profile:
     type: object
     description: Личные данные пользователя

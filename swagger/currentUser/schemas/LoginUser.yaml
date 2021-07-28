@@ -8,4 +8,4 @@ properties:
   password:
     type: string
     description: Пароль пользователя
-    example: password
+    example: alohomora
