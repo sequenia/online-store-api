@@ -12,7 +12,8 @@ description: |
   Если при выполнении запроса заказ находится в статусе `cart`, то заказ будет переведен в статус `personal_info`.
 
   Возможные коды ошибок:
-  - `unauthorized` - требуется авторизация
+  - `empty_cart` - Корзина пуста
+  - `unauthorized` - Требуется авторизация
 tags:
   - Оформление заказа
 responses:
@@ -31,3 +32,17 @@ responses:
                       $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'
+  '403':
+    description: Запрещено
+    content:
+      application/json:
+        schema:
+          $ref: '../../base/schemas/ErrorResponse.yaml'
+        examples:
+          EmptyCart:
+            allOf:
+              - $ref: '../../base/examples/ErrorResponse.yaml'
+              - summary: Корзина пуста
+                value:
+                  errorCode: empty_cart
+                  errorMessage: Добавьте товары в корзину перед оформлением заказа

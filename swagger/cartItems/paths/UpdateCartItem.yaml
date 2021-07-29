@@ -48,7 +48,7 @@ responses:
                   errorCode: cart_item_not_found
                   errorMessage: Не удалось изменить данные, так как товар отсутствует в корзине
   '422':
-    description: Ошибка в переданных данных
+    description: Ошибка в данных
     content:
       application/json:
         schema:

@@ -34,6 +34,12 @@
     $ref: './checkout/paths/ShowCheckout.yaml'
   put:
     $ref: './checkout/paths/UpdateCheckout.yaml'
+/checkout/next:
+  post:
+    $ref: './checkout/paths/NextCheckout.yaml'
+/checkout/advance:
+  post:
+    $ref: './checkout/paths/AdvanceCheckout.yaml'
 /checkout/shipping_rates:
   get:
     $ref: './checkout/paths/IndexCheckoutShippingRates.yaml'
