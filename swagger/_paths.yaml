@@ -46,6 +46,9 @@
 /checkout/pickup_points:
   get:
     $ref: './checkout/paths/IndexCheckoutPickupPoints.yaml'
+/checkout/payment_methods:
+  get:
+    $ref: './checkout/paths/IndexPaymentMethods.yaml'
 /countries:
   get:
     $ref: './countries/paths/IndexCountry.yaml'

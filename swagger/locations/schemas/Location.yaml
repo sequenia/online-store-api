@@ -4,10 +4,10 @@ allOf:
     description: Географическая точка
     properties:
       latitude:
-        type: float
+        type: number
         description: Широта
         example: 51.215485
       longitude:
-        type: float
+        type: number
         description: Долгота
         example: -0.631027

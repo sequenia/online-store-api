@@ -86,3 +86,11 @@ Location:
   $ref: './locations/schemas/Location.yaml'
 PickupPoint:
   $ref: './pickupPoints/schemas/PickupPoint.yaml'
+PaymentMethod:
+  $ref: './paymentMethods/schemas/PaymentMethod.yaml'
+IndexPaymentMethod:
+  $ref: './paymentMethods/schemas/IndexPaymentMethod.yaml'
+PaymentGateway:
+  $ref: './paymentGateways/schemas/PaymentGateway.yaml'
+Payment:
+  $ref: './payments/schemas/Payment.yaml'

@@ -1,0 +1,26 @@
+summary: Способы оплаты
+description: |
+  Возвращает способы оплаты, доступные для текущего заказа.
+
+  Возможные коды ошибок:
+  - `unauthorized` - требуется авторизация
+tags:
+  - Оформление заказа
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    paymentMethods:
+                      type: array
+                      items:
+                        $ref: '../../paymentMethods/schemas/IndexPaymentMethod.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'

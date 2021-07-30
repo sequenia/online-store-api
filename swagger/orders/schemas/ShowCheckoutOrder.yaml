@@ -2,6 +2,18 @@ allOf:
   - $ref: './Order.yaml'
   - type: object
     properties:
+      currency:
+        allOf:
+          - $ref: '../../currencies/schemas/Currency.yaml'
+          - type: object
+            description: Валюта, в которой оформляется заказ
+      itemsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "100.00"
       customer:
         allOf:
           - $ref: '../../people/schemas/Person.yaml'
@@ -22,6 +34,13 @@ allOf:
                   - $ref: '../../shippingRates/schemas/ShippingRate.yaml'
                   - type: object
                     properties:
+                      price:
+                        allOf:
+                          - $ref: '../../prices/schemas/Price.yaml'
+                          - type: object
+                            properties:
+                              amount:
+                                example: "50.00"
                       shippingMethod:
                         $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'
               deliveryAddress:
@@ -33,3 +52,22 @@ allOf:
                     properties:
                       location:
                         $ref: '../../locations/schemas/Location.yaml'
+      payment:
+        allOf:
+          - $ref: '../../payments/schemas/Payment.yaml'
+          - type: object
+            properties:
+              method:
+                allOf:
+                  - $ref: '../../paymentMethods/schemas/PaymentMethod.yaml'
+                  - type: object
+                    properties:
+                      gateway:
+                        $ref: '../../paymentGateways/schemas/PaymentGateway.yaml'
+              total:
+                allOf:
+                  - $ref: '../../prices/schemas/Price.yaml'
+                  - type: object
+                    properties:
+                      amount:
+                        example: "150.00"

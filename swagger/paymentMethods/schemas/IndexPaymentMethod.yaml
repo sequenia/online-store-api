@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './PaymentMethod.yaml'
+  - type: object
+    properties:
+      gateway:
+        $ref: '../../paymentGateways/schemas/PaymentGateway.yaml'

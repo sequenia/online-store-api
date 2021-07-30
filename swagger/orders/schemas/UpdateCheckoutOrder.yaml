@@ -27,3 +27,11 @@ properties:
         type: integer
         description: Идентификатор пункта самовывоза. Указывается для способа получения заказа с типом `pickup`
         example: 1
+  payment:
+    type: object
+    description: Информация об оплате
+    properties:
+      methodId:
+        type: integer
+        description: Идентификатор способа оплаты
+        example: 1

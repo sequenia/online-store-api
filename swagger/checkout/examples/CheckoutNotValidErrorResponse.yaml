@@ -40,3 +40,7 @@ allOf:
                     - Ошибка
                   comment:
                     - Ошибка
+          payment:
+            fields:
+              methodId:
+                - Ошибка
