@@ -312,7 +312,7 @@ ADD COLUMN items_total number(8, 2);
 public class Order {
   private Long id;
   private OrderStatus status;
-  private BigDecimal itemsTotal;
+  private Price itemsTotal;
   private OrderPerson customer;
   private OrderPerson recipient;
   private Shipment shipment;
@@ -352,7 +352,7 @@ public class Shipment {
 
 public class ShippingRate {
   private Long id;
-  private BigDecimal price;
+  private Price price;
   private ShippingMethod shippingMethod;
 }
 
@@ -405,7 +405,7 @@ public class Payment {
   private Long id;
   private PaymentStatus status;
   private PaymentMethod method;
-  private BigDecimal total;
+  private Price total;
 }
 
 public enum PaymentStatus {
@@ -441,6 +441,10 @@ public enum PaymentMethodType {
     this.name = name;
   }
 }
+
+public class Price {
+  private BigDecimal amount;
+}
 ```
 
 Пример JSON-а с информацией о текущем заказе для клиентского приложения:
@@ -450,7 +454,9 @@ public enum PaymentMethodType {
   "order": {
     "id": 1,
     "status": "cart",
-    "itemsTotal": "100.00",
+    "itemsTotal": {
+      "amount": "100.00"
+    },
     "customer": {
       "id": 1,
       "firstName": "Гарри",
@@ -469,7 +475,9 @@ public enum PaymentMethodType {
       "id": 1,
       "rate": {
         "id": 1,
-        "price": "50.00",
+        "price": {
+          "amount": "50.00"
+        },
         "shippingMethod": {
           "id": 1,
           "name": "Совой в руки",
@@ -502,7 +510,9 @@ public enum PaymentMethodType {
         "name": "Картой онлайн",
         "type": "bank"
       },
-      "total": "150.00"
+      "total": {
+        "amount": "150.00"
+      }
     }
   }
 }
