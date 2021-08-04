@@ -24,9 +24,9 @@ allOf:
           - $ref: '../../people/schemas/Person.yaml'
           - type: object
             description: Получатель заказа
-      shipping:
+      shipment:
         allOf:
-          - $ref: '../../shippings/schemas/Shipping.yaml'
+          - $ref: '../../shipments/schemas/Shipment.yaml'
           - type: object
             properties:
               rate:
@@ -58,12 +58,7 @@ allOf:
           - type: object
             properties:
               method:
-                allOf:
-                  - $ref: '../../paymentMethods/schemas/PaymentMethod.yaml'
-                  - type: object
-                    properties:
-                      gateway:
-                        $ref: '../../paymentGateways/schemas/PaymentGateway.yaml'
+                $ref: '../../paymentMethods/schemas/PaymentMethod.yaml'
               total:
                 allOf:
                   - $ref: '../../prices/schemas/Price.yaml'

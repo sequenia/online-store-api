@@ -80,8 +80,8 @@ IndexShippingRate:
   $ref: './shippingRates/schemas/IndexShippingRate.yaml'
 DeliveryMethod:
   $ref: './shippingMethods/schemas/ShippingMethod.yaml'
-Shipping:
-  $ref: './shippings/schemas/Shipping.yaml'
+Shipment:
+  $ref: './shipments/schemas/Shipment.yaml'
 Location:
   $ref: './locations/schemas/Location.yaml'
 PickupPoint:
@@ -90,7 +90,5 @@ PaymentMethod:
   $ref: './paymentMethods/schemas/PaymentMethod.yaml'
 IndexPaymentMethod:
   $ref: './paymentMethods/schemas/IndexPaymentMethod.yaml'
-PaymentGateway:
-  $ref: './paymentGateways/schemas/PaymentGateway.yaml'
 Payment:
   $ref: './payments/schemas/Payment.yaml'

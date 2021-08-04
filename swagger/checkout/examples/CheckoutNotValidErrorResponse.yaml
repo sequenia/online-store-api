@@ -23,7 +23,7 @@ allOf:
                 - Ошибка
               phone:
                 - Ошибка
-          shipping:
+          shipment:
             fields:
               rateId:
                 - Ошибка

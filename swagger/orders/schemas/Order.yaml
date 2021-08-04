@@ -8,14 +8,14 @@ allOf:
         enum:
           - cart
           - personal_info
-          - shipping
+          - shipment
           - payment
           - complete
         description: |
           Статус заказа. Возможные значения:
           - `cart` - Корзина
           - `personal_info` - Заполнение личной информации
-          - `shipping` - Ввод информации о способе получения заказа
+          - `shipment` - Ввод информации о способе получения заказа
           - `payment` - Выбор способа оплаты
           - `complete` - Оформлен
         example: cart

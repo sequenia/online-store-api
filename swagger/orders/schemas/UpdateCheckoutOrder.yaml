@@ -11,7 +11,7 @@ properties:
       - $ref: '../../people/schemas/PersonAttributes.yaml'
       - type: object
         description: Получатель заказа
-  shipping:
+  shipment:
     type: object
     description: Информация о получении заказа
     properties:
