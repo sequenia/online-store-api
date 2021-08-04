@@ -21,6 +21,7 @@
 3. [Проблема N+1 запросов](docs/n_plus_one.md)
 4. [Авторизация](docs/authorization.md)
 5. [Товары](docs/products.md)
+6. [Корзина](docs/cart.md)
 
 ## Пример API
 
