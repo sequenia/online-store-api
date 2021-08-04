@@ -1,0 +1,20 @@
+type: object
+description: Адрес доставки
+properties:
+  countryId:
+    type: integer
+    description: Идентификатор страны
+    example: 1
+  city:
+    type: string
+    description: Город
+    example: Литтл Уингинг
+  line1:
+    type: string
+    description: Улица, дом, квартира
+    example: ул. Тисовая, д. 4
+  comment:
+    type: string
+    description: Комментарий к адресу
+    example: В чулан под лестницей
+

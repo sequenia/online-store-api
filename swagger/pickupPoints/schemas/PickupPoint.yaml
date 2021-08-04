@@ -1,0 +1,13 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Точка самовывоза товара
+    properties:
+      name:
+        type: string
+        description: Название
+        example: Magic Box в "Всё для квиддича"
+      address:
+        type: string
+        description: Полный адрес точки самовывоза
+        example: Косой переулок, магазин "Всё для квиддича"

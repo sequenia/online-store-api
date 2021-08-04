@@ -6,4 +6,4 @@ allOf:
       amount:
         type: string
         description: Значение цены в формате BigDecimal с точностю 8 (precision) и масштабом 2 (scale)
-        example: "1234.56"
+        example: "1.23"

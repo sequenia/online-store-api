@@ -1,0 +1,4 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Стоимость способа получения заказа

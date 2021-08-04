@@ -22,6 +22,7 @@
 4. [Авторизация](docs/authorization.md)
 5. [Товары](docs/products.md)
 6. [Корзина](docs/cart.md)
+7. [Оформление заказа](docs/checkout.md)
 
 ## Пример API
 

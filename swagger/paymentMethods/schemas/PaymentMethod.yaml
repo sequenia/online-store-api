@@ -1,0 +1,25 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Способ оплаты
+    properties:
+      name: 
+        type: string
+        description: Название способа оплаты для отображения на клиенте
+        example: Картой онлайн
+      type:
+        type: string
+        description: |
+          Тип способа оплаты.
+
+          Возможные значения:
+          - `offline` - Оплата вне интернет-магазина. Например, наличными курьеру или картой курьеру.
+          - `bank` - Оплата через банк
+          - `google_pay` - Google Pay
+          - `apply_pay` - Apple Pay
+        example: online
+        enum:
+          - offline
+          - bank
+          - google_pay
+          - apple_pay

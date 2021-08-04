@@ -1,0 +1,3 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - $ref: './PersonAttributes.yaml'

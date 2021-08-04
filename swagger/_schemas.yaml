@@ -34,6 +34,12 @@ OrderItemPrice:
   $ref: './prices/schemas/OrderItemPrice.yaml'
 Order:
   $ref: './orders/schemas/Order.yaml'
+ShowCheckoutOrder:
+  $ref: './orders/schemas/ShowCheckoutOrder.yaml'
+UpdateCheckoutOrder:
+  $ref: './orders/schemas/UpdateCheckoutOrder.yaml'
+Cart:
+  $ref: './cart/schemas/Cart.yaml'
 ShowCart:
   $ref: './cart/schemas/ShowCart.yaml'
 UpdateCart:
@@ -58,3 +64,31 @@ AccessToken:
   $ref: './accessTokens/schemas/AccessToken.yaml'
 Profile:
   $ref: './profiles/schemas/Profile.yaml'
+DeliveryAddressAttributes:
+  $ref: './deliveryAddresses/schemas/DeliveryAddressAttributes.yaml'
+DeliveryAddress:
+  $ref: './deliveryAddresses/schemas/DeliveryAddress.yaml'
+Country:
+  $ref: './countries/schemas/Country.yaml'
+PersonAttributes:
+  $ref: './people/schemas/PersonAttributes.yaml'
+Person:
+  $ref: './people/schemas/Person.yaml'
+ShippingRate:
+  $ref: './shippingRates/schemas/ShippingRate.yaml'
+IndexShippingRate:
+  $ref: './shippingRates/schemas/IndexShippingRate.yaml'
+DeliveryMethod:
+  $ref: './shippingMethods/schemas/ShippingMethod.yaml'
+Shipment:
+  $ref: './shipments/schemas/Shipment.yaml'
+Location:
+  $ref: './locations/schemas/Location.yaml'
+PickupPoint:
+  $ref: './pickupPoints/schemas/PickupPoint.yaml'
+PaymentMethod:
+  $ref: './paymentMethods/schemas/PaymentMethod.yaml'
+IndexPaymentMethod:
+  $ref: './paymentMethods/schemas/IndexPaymentMethod.yaml'
+Payment:
+  $ref: './payments/schemas/Payment.yaml'

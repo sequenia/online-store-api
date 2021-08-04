@@ -7,7 +7,15 @@ allOf:
         type: string
         enum:
           - cart
+          - personal_info
+          - shipment
+          - payment
+          - complete
         description: |
           Статус заказа. Возможные значения:
-          - `cart` - Корзина. Для каждого пользователя может быть только один заказ к статусе `cart`.
+          - `cart` - Корзина
+          - `personal_info` - Заполнение личной информации
+          - `shipment` - Ввод информации о способе получения заказа
+          - `payment` - Выбор способа оплаты
+          - `complete` - Оформлен
         example: cart

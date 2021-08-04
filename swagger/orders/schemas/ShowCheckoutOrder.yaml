@@ -1,0 +1,68 @@
+allOf:
+  - $ref: './Order.yaml'
+  - type: object
+    properties:
+      currency:
+        allOf:
+          - $ref: '../../currencies/schemas/Currency.yaml'
+          - type: object
+            description: Валюта, в которой оформляется заказ
+      itemsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "100.00"
+      customer:
+        allOf:
+          - $ref: '../../people/schemas/Person.yaml'
+          - type: object
+            description: Покупатель
+      recipient:
+        allOf:
+          - $ref: '../../people/schemas/Person.yaml'
+          - type: object
+            description: Получатель заказа
+      shipment:
+        allOf:
+          - $ref: '../../shipments/schemas/Shipment.yaml'
+          - type: object
+            properties:
+              rate:
+                allOf:
+                  - $ref: '../../shippingRates/schemas/ShippingRate.yaml'
+                  - type: object
+                    properties:
+                      price:
+                        allOf:
+                          - $ref: '../../prices/schemas/Price.yaml'
+                          - type: object
+                            properties:
+                              amount:
+                                example: "50.00"
+                      shippingMethod:
+                        $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'
+              deliveryAddress:
+                $ref: '../../deliveryAddresses/schemas/DeliveryAddress.yaml'
+              pickupPoint:
+                allOf:
+                  - $ref: '../../pickupPoints/schemas/PickupPoint.yaml'
+                  - type: object
+                    properties:
+                      location:
+                        $ref: '../../locations/schemas/Location.yaml'
+      payment:
+        allOf:
+          - $ref: '../../payments/schemas/Payment.yaml'
+          - type: object
+            properties:
+              method:
+                $ref: '../../paymentMethods/schemas/PaymentMethod.yaml'
+              total:
+                allOf:
+                  - $ref: '../../prices/schemas/Price.yaml'
+                  - type: object
+                    properties:
+                      amount:
+                        example: "150.00"

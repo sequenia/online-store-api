@@ -15,7 +15,7 @@ properties:
     example: profile_not_found
   errorMessage:
     type: string
-    description: 'Сообщение от сервера при ошибке, которое должно вывести МП для пользователя'
+    description: Сообщение от сервера при ошибке, которое должно вывести МП для пользователя
     example: Аккаунт не найден
   errors:
     type: object

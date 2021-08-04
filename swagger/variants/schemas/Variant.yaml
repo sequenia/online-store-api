@@ -5,4 +5,4 @@ allOf:
       name:
         type: string
         description: Название для отображения на клиенте
-        example: Футболка Красная L
+        example: Мантия Красная L

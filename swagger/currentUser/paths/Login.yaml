@@ -35,7 +35,7 @@ responses:
                     user:
                       $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
   '422':
-    description: Ошибка в переданных данных
+    description: Ошибка в данных
     content:
       application/json:
         schema:

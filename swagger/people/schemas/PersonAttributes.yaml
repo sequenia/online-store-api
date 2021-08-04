@@ -1,0 +1,19 @@
+type: object
+description: Информациия о человеке
+properties:
+  firstName:
+    type: string
+    description: Имя
+    example: Гарри
+  lastName:
+    type: string
+    description: Фамилия
+    example: Поттер
+  email:
+    type: string
+    description: Электронная почта
+    example: harrypotter@hogwarts.com
+  phone:
+    type: string
+    description: Номер телефона
+    example: 1234567890

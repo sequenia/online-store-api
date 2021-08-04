@@ -2,3 +2,5 @@ ProductId:
   $ref: './products/parameters/ProductId.yaml'
 CartItemId:
   $ref: './cartItems/parameters/CartItemId.yaml'
+ShippingMethodId:
+  $ref: './shippingMethods/parameters/ShippingMethodId.yaml'
