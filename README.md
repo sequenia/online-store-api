@@ -23,6 +23,7 @@
 5. [Товары](docs/products.md)
 6. [Корзина](docs/cart.md)
 7. [Оформление заказа](docs/checkout.md)
+8. [Промоакции](docs/promotions.md)
 
 ## Пример API
 
