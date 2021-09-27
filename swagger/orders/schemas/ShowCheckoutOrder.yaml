@@ -117,4 +117,4 @@ allOf:
                   - type: object
                     properties:
                       amount:
-                        example: "150.00"
+                        example: "216.00"
