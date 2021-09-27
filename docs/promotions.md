@@ -150,7 +150,7 @@ public class Price {
             "price": {
               "amount": "-10.00"
             },
-            "label": "Закажи 3 мантии и получи скидку 10% на каждую из них"
+            "label": "Закажи 3 футболки и получи скидку 10% на каждую из них"
           }
         ],
         "originalPrice": {
@@ -194,7 +194,7 @@ public class Price {
       "adjustments": [
         {
           "id": 1,
-          "sourceType": "shipment",
+          "sourceType": "promotion",
           "price": {
             "amount": "-50.00"
           },

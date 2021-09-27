@@ -15,8 +15,8 @@ allOf:
             - $ref: '../../orderItems/schemas/OrderItem.yaml'
             - type: object
               properties:
-                price:
-                  $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                count:
+                  example: 3
                 variant:
                   allOf:
                     - $ref: '../../variants/schemas/Variant.yaml'
@@ -47,10 +47,93 @@ allOf:
                                 properties:
                                   option:
                                     $ref: '../../options/schemas/Option.yaml'
+                adjustments:
+                  type: array
+                  description: Корректировки позиции заказа
+                  items:
+                    allOf:
+                      - $ref: '../../adjustments/schemas/Adjustment.yaml'
+                      - type: object
+                        properties:
+                          label:
+                            example: Закажи 3 мантии и получи скидку 10% на каждую из них
+                          price:
+                            allOf:
+                              - $ref: '../../prices/schemas/Price.yaml'
+                              - type: object
+                                properties:
+                                  amount:
+                                    example: "-10.00"
+                originalPrice:
+                  allOf:
+                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "100.00"
+                originalTotal:
+                  allOf:
+                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "300.00"
+                adjustmentsTotal:
+                  allOf:
+                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "-10.00"
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "90.00"
+                total:
+                  allOf:
+                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "270.00"
+      adjustments:
+        type: array
+        description: Корректировки заказа
+        items:
+          allOf:
+            - $ref: '../../adjustments/schemas/Adjustment.yaml'
+            - type: object
+              properties:
+                label:
+                  example: Укажи промокод "ПРАЗДНИК" и получи скидку 20% на весь заказ
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "-10.00"
       itemsTotal:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
             properties:
               amount:
-                example: "100.00"
+                example: "270.00"
+      adjustmentsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "-54.00"
+      total:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "216.00"

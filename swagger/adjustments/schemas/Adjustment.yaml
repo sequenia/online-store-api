@@ -1,0 +1,17 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Корректировка
+    properties:
+      sourceType:
+        type: string
+        enum:
+          - promotion
+        description: |
+          Тип источника корректировки. Возможные значения:
+          - `promotion` - Промоакция.
+        example: promotion
+      label:
+        type: String
+        description: Предоставляет краткую информацию об источнике и смысле корректировки
+        example: Закажи 3 мантии и получи скидку 10% на каждую из них
