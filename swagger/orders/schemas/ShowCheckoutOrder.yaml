@@ -17,6 +17,23 @@ allOf:
           - $ref: '../../people/schemas/Person.yaml'
           - type: object
             description: Получатель заказа
+      adjustments:
+        type: array
+        description: Корректировки заказа
+        items:
+          allOf:
+            - $ref: '../../adjustments/schemas/Adjustment.yaml'
+            - type: object
+              properties:
+                label:
+                  example: Укажи промокод "ПРАЗДНИК" и получи скидку 20% на весь заказ
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "-54.00"
       itemsTotal:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'

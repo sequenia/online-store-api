@@ -115,7 +115,7 @@ allOf:
                     - type: object
                       properties:
                         amount:
-                          example: "-10.00"
+                          example: "-54.00"
       itemsTotal:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
