@@ -47,3 +47,10 @@ allOf:
                                 properties:
                                   option:
                                     $ref: '../../options/schemas/Option.yaml'
+      itemsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "100.00"
