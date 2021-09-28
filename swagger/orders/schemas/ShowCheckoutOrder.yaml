@@ -38,6 +38,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок
             properties:
               amount:
                 example: "270.00"
@@ -45,6 +46,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма корректировок заказа
             properties:
               amount:
                 example: "-54.00"
@@ -52,6 +54,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок и корректировок заказа
             properties:
               amount:
                 example: "216.00"
@@ -104,6 +107,7 @@ allOf:
                 allOf:
                   - $ref: '../../prices/schemas/Price.yaml'
                   - type: object
+                    description: Стоимость получения заказа без учета корректировок на момент оформления заказа
                     properties:
                       amount:
                         example: "50.00"
@@ -111,6 +115,7 @@ allOf:
                 allOf:
                   - $ref: '../../prices/schemas/Price.yaml'
                   - type: object
+                    description: Сумма корректировок получения заказа
                     properties:
                       amount:
                         example: "-50.00"
@@ -118,6 +123,7 @@ allOf:
                 allOf:
                   - $ref: '../../prices/schemas/Price.yaml'
                   - type: object
+                    description: Стоимость получения заказа с учетом корректировок
                     properties:
                       amount:
                         example: "00.00"
@@ -132,6 +138,7 @@ allOf:
                 allOf:
                   - $ref: '../../prices/schemas/Price.yaml'
                   - type: object
+                    description: Итоговая сумма платежа
                     properties:
                       amount:
                         example: "216.00"
