@@ -1,94 +1,96 @@
-ErrorResponse:
-  $ref: './base/schemas/ErrorResponse.yaml'
-SuccessResponse:
-  $ref: './base/schemas/SuccessResponse.yaml'
-Object:
-  $ref: './base/schemas/Object.yaml'
-Property:
-  $ref: './properties/schemas/Property.yaml'
-PropertyValue:
-  $ref: './propertyValues/schemas/PropertyValue.yaml'
-Option:
-  $ref: './options/schemas/Option.yaml'
-OptionValue:
-  $ref: './optionValues/schemas/OptionValue.yaml'
-OptionValueMeta:
-  $ref: './optionValueMetas/schemas/OptionValueMeta.yaml'
-Product:
-  $ref: './products/schemas/Product.yaml'
-ShowProduct:
-  $ref: './products/schemas/ShowProduct.yaml'
-IndexProduct:
-  $ref: './products/schemas/IndexProduct.yaml'
-Variant:
-  $ref: './variants/schemas/Variant.yaml'
-MasterVariant:
-  $ref: './variants/schemas/MasterVariant.yaml'
-RegularVariant:
-  $ref: './variants/schemas/RegularVariant.yaml'
-Price:
-  $ref: './prices/schemas/Price.yaml'
-VariantPrice:
-  $ref: './prices/schemas/VariantPrice.yaml'
-OrderItemPrice:
-  $ref: './prices/schemas/OrderItemPrice.yaml'
-Order:
-  $ref: './orders/schemas/Order.yaml'
-ShowCheckoutOrder:
-  $ref: './orders/schemas/ShowCheckoutOrder.yaml'
-UpdateCheckoutOrder:
-  $ref: './orders/schemas/UpdateCheckoutOrder.yaml'
-Cart:
-  $ref: './cart/schemas/Cart.yaml'
-ShowCart:
-  $ref: './cart/schemas/ShowCart.yaml'
-UpdateCart:
-  $ref: './cart/schemas/UpdateCart.yaml'
-OrderItem:
-  $ref: './orderItems/schemas/OrderItem.yaml'
-CreateOrderItem:
-  $ref: './orderItems/schemas/CreateOrderItem.yaml'
-UpdateOrderItem:
-  $ref: './orderItems/schemas/UpdateOrderItem.yaml'
-Currency:
-  $ref: './currencies/schemas/Currency.yaml'
-LoginUser:
-  $ref: './currentUser/schemas/LoginUser.yaml'
-CurrentUser:
-  $ref: './currentUser/schemas/CurrentUser.yaml'
-ShowCurrentUser:
-  $ref: './currentUser/schemas/ShowCurrentUser.yaml'
-RegisterUser:
-  $ref: './currentUser/schemas/RegisterUser.yaml'
-AccessToken:
-  $ref: './accessTokens/schemas/AccessToken.yaml'
-Profile:
-  $ref: './profiles/schemas/Profile.yaml'
-DeliveryAddressAttributes:
-  $ref: './deliveryAddresses/schemas/DeliveryAddressAttributes.yaml'
-DeliveryAddress:
-  $ref: './deliveryAddresses/schemas/DeliveryAddress.yaml'
-Country:
-  $ref: './countries/schemas/Country.yaml'
-PersonAttributes:
-  $ref: './people/schemas/PersonAttributes.yaml'
-Person:
-  $ref: './people/schemas/Person.yaml'
-ShippingRate:
-  $ref: './shippingRates/schemas/ShippingRate.yaml'
-IndexShippingRate:
-  $ref: './shippingRates/schemas/IndexShippingRate.yaml'
-DeliveryMethod:
-  $ref: './shippingMethods/schemas/ShippingMethod.yaml'
-Shipment:
-  $ref: './shipments/schemas/Shipment.yaml'
-Location:
-  $ref: './locations/schemas/Location.yaml'
-PickupPoint:
-  $ref: './pickupPoints/schemas/PickupPoint.yaml'
-PaymentMethod:
-  $ref: './paymentMethods/schemas/PaymentMethod.yaml'
-IndexPaymentMethod:
-  $ref: './paymentMethods/schemas/IndexPaymentMethod.yaml'
-Payment:
-  $ref: './payments/schemas/Payment.yaml'
+AccessToken: 
+  $ref: ./accessTokens/schemas/AccessToken.yaml
+Adjustment: 
+  $ref: ./adjustments/schemas/Adjustment.yaml
+Cart: 
+  $ref: ./cart/schemas/Cart.yaml
+Country: 
+  $ref: ./countries/schemas/Country.yaml
+CreateOrderItem: 
+  $ref: ./orderItems/schemas/CreateOrderItem.yaml
+Currency: 
+  $ref: ./currencies/schemas/Currency.yaml
+CurrentUser: 
+  $ref: ./currentUser/schemas/CurrentUser.yaml
+DeliveryAddress: 
+  $ref: ./deliveryAddresses/schemas/DeliveryAddress.yaml
+DeliveryAddressAttributes: 
+  $ref: ./deliveryAddresses/schemas/DeliveryAddressAttributes.yaml
+DeliveryMethod: 
+  $ref: ./shippingMethods/schemas/ShippingMethod.yaml
+ErrorResponse: 
+  $ref: ./base/schemas/ErrorResponse.yaml
+IndexPaymentMethod: 
+  $ref: ./paymentMethods/schemas/IndexPaymentMethod.yaml
+IndexProduct: 
+  $ref: ./products/schemas/IndexProduct.yaml
+IndexShippingRate: 
+  $ref: ./shippingRates/schemas/IndexShippingRate.yaml
+Location: 
+  $ref: ./locations/schemas/Location.yaml
+LoginUser: 
+  $ref: ./currentUser/schemas/LoginUser.yaml
+MasterVariant: 
+  $ref: ./variants/schemas/MasterVariant.yaml
+Object: 
+  $ref: ./base/schemas/Object.yaml
+Option: 
+  $ref: ./options/schemas/Option.yaml
+OptionValue: 
+  $ref: ./optionValues/schemas/OptionValue.yaml
+OptionValueMeta: 
+  $ref: ./optionValueMetas/schemas/OptionValueMeta.yaml
+Order: 
+  $ref: ./orders/schemas/Order.yaml
+OrderItem: 
+  $ref: ./orderItems/schemas/OrderItem.yaml
+OrderItemPrice: 
+  $ref: ./prices/schemas/OrderItemPrice.yaml
+Payment: 
+  $ref: ./payments/schemas/Payment.yaml
+PaymentMethod: 
+  $ref: ./paymentMethods/schemas/PaymentMethod.yaml
+Person: 
+  $ref: ./people/schemas/Person.yaml
+PersonAttributes: 
+  $ref: ./people/schemas/PersonAttributes.yaml
+PickupPoint: 
+  $ref: ./pickupPoints/schemas/PickupPoint.yaml
+Price: 
+  $ref: ./prices/schemas/Price.yaml
+Product: 
+  $ref: ./products/schemas/Product.yaml
+Profile: 
+  $ref: ./profiles/schemas/Profile.yaml
+Property: 
+  $ref: ./properties/schemas/Property.yaml
+PropertyValue: 
+  $ref: ./propertyValues/schemas/PropertyValue.yaml
+RegisterUser: 
+  $ref: ./currentUser/schemas/RegisterUser.yaml
+RegularVariant: 
+  $ref: ./variants/schemas/RegularVariant.yaml
+Shipment: 
+  $ref: ./shipments/schemas/Shipment.yaml
+ShippingRate: 
+  $ref: ./shippingRates/schemas/ShippingRate.yaml
+ShowCart: 
+  $ref: ./cart/schemas/ShowCart.yaml
+ShowCheckoutOrder: 
+  $ref: ./orders/schemas/ShowCheckoutOrder.yaml
+ShowCurrentUser: 
+  $ref: ./currentUser/schemas/ShowCurrentUser.yaml
+ShowProduct: 
+  $ref: ./products/schemas/ShowProduct.yaml
+SuccessResponse: 
+  $ref: ./base/schemas/SuccessResponse.yaml
+UpdateCart: 
+  $ref: ./cart/schemas/UpdateCart.yaml
+UpdateCheckoutOrder: 
+  $ref: ./orders/schemas/UpdateCheckoutOrder.yaml
+UpdateOrderItem: 
+  $ref: ./orderItems/schemas/UpdateOrderItem.yaml
+Variant: 
+  $ref: ./variants/schemas/Variant.yaml
+VariantPrice: 
+  $ref: ./prices/schemas/VariantPrice.yaml

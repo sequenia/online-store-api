@@ -17,7 +17,7 @@ properties:
     properties:
       rateId:
         type: integer
-        decription: Идентификатор стоимости способа получения заказа
+        description: Идентификатор стоимости способа получения заказа
         example: 1
       deliveryAddress:
         allOf:
