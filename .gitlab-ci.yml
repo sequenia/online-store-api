@@ -11,21 +11,6 @@ cache:
   paths:
     - node_modules/
 
-.init-ssh-script: &init-ssh-script
-  - echo "Initializing SSH"
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  - echo "SSH initialized"
-
-.upload-build-script: &upload-build-script
-  - echo "Uploading build"
-  - scp -P $SSH_PORT build/swagger/online_store_api.yaml $DEPLOY_USER@$SERVER_ADDRESS:$RELEASE_PATH/online_store_api.yaml
-  - echo "Build uploaded"
-
 .build:
   stage: build
   tags:
@@ -42,8 +27,13 @@ cache:
   tags:
     - web
   script:
-    - *init-ssh-script
-    - *upload-build-script
+    - echo "Uploading build"
+    - |
+      curl --request POST "https://api.swaggerhub.com/apis/$SWAGGERHUB_OWNER/$SWAGGERHUB_API_NAME" \
+        --header "Authorization: $SWAGGERHUB_API_KEY" \
+        --header "Content-Type: application/yaml" \
+        --data-binary @build/swagger/online_store_api.yaml
+    - echo "Build uploaded"
 
 .notify_success:
   stage: notify_success

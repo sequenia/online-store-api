@@ -12,6 +12,6 @@ allOf:
           - `promotion` - Промоакция.
         example: promotion
       label:
-        type: String
+        type: string
         description: Предоставляет краткую информацию об источнике и смысле корректировки
         example: Закажи 3 мантии и получи скидку 10% на каждую из них
