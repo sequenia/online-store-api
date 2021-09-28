@@ -7,13 +7,6 @@ allOf:
           - $ref: '../../currencies/schemas/Currency.yaml'
           - type: object
             description: Валюта, в которой оформляется заказ
-      itemsTotal:
-        allOf:
-          - $ref: '../../prices/schemas/Price.yaml'
-          - type: object
-            properties:
-              amount:
-                example: "100.00"
       customer:
         allOf:
           - $ref: '../../people/schemas/Person.yaml'
@@ -24,6 +17,44 @@ allOf:
           - $ref: '../../people/schemas/Person.yaml'
           - type: object
             description: Получатель заказа
+      adjustments:
+        type: array
+        description: Корректировки заказа
+        items:
+          allOf:
+            - $ref: '../../adjustments/schemas/Adjustment.yaml'
+            - type: object
+              properties:
+                label:
+                  example: Укажи промокод "ПРАЗДНИК" и получи скидку 20% на весь заказ
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "-54.00"
+      itemsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "270.00"
+      adjustmentsTotal:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "-54.00"
+      total:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            properties:
+              amount:
+                example: "216.00"
       shipment:
         allOf:
           - $ref: '../../shipments/schemas/Shipment.yaml'
@@ -52,6 +83,44 @@ allOf:
                     properties:
                       location:
                         $ref: '../../locations/schemas/Location.yaml'
+              adjustments:
+                type: array
+                description: Корректировки заказа
+                items:
+                  allOf:
+                    - $ref: '../../adjustments/schemas/Adjustment.yaml'
+                    - type: object
+                      properties:
+                        label:
+                          example: Оформите заказ более чем на 100 рублей, и мы выполним доставку бесплатно
+                        price:
+                          allOf:
+                            - $ref: '../../prices/schemas/Price.yaml'
+                            - type: object
+                              properties:
+                                amount:
+                                  example: "-50.00"
+              originalPrice:
+                allOf:
+                  - $ref: '../../prices/schemas/Price.yaml'
+                  - type: object
+                    properties:
+                      amount:
+                        example: "50.00"
+              adjustmentsTotal:
+                allOf:
+                  - $ref: '../../prices/schemas/Price.yaml'
+                  - type: object
+                    properties:
+                      amount:
+                        example: "-50.00"
+              total:
+                allOf:
+                  - $ref: '../../prices/schemas/Price.yaml'
+                  - type: object
+                    properties:
+                      amount:
+                        example: "00.00"
       payment:
         allOf:
           - $ref: '../../payments/schemas/Payment.yaml'
@@ -65,4 +134,4 @@ allOf:
                   - type: object
                     properties:
                       amount:
-                        example: "150.00"
+                        example: "216.00"
