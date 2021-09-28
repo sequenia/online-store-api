@@ -66,36 +66,41 @@ allOf:
                                     example: "-10.00"
                 originalPrice:
                   allOf:
-                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - $ref: '../../prices/schemas/Price.yaml'
                     - type: object
+                      description: Стоимость варианта без учета корректировок
                       properties:
                         amount:
                           example: "100.00"
                 originalTotal:
                   allOf:
-                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - $ref: '../../prices/schemas/Price.yaml'
                     - type: object
+                      description: Стоимость позиции заказа без учета корректировок
                       properties:
                         amount:
                           example: "300.00"
                 adjustmentsTotal:
                   allOf:
-                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - $ref: '../../prices/schemas/Price.yaml'
                     - type: object
+                      description: Сумма корректировок позиции заказа
                       properties:
                         amount:
                           example: "-10.00"
                 price:
                   allOf:
-                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - $ref: '../../prices/schemas/Price.yaml'
                     - type: object
+                      description: Стоимость варианта с учетом корректировок
                       properties:
                         amount:
                           example: "90.00"
                 total:
                   allOf:
-                    - $ref: '../../prices/schemas/OrderItemPrice.yaml'
+                    - $ref: '../../prices/schemas/Price.yaml'
                     - type: object
+                      description: Стоимость позиции заказа с учетом корректировок
                       properties:
                         amount:
                           example: "270.00"
@@ -120,6 +125,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок
             properties:
               amount:
                 example: "270.00"
@@ -127,6 +133,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма корректировок заказа
             properties:
               amount:
                 example: "-54.00"
@@ -134,6 +141,7 @@ allOf:
         allOf:
           - $ref: '../../prices/schemas/Price.yaml'
           - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок и корректировок заказа
             properties:
               amount:
                 example: "216.00"
