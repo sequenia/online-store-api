@@ -14,15 +14,15 @@
 
 Ниже приведены примеры интерфейса для перечисленных схем. Вариант 1:
 
-<img src="../assets/checkout_multi_screen.jpg" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 20px; display: block;">
+<img src="../assets/checkout_multi_screen.jpg" width="700px">
 
 Вариант 2:
 
-<img src="../assets/checkout_single_screen.jpg" style="max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 20px; display: block;">
+<img src="../assets/checkout_single_screen.jpg" width="500px">
 
 Вариант 3:
 
-<img src="../assets/checkout_combined.jpg" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 20px; display: block;">
+<img src="../assets/checkout_combined.jpg" width="700px">
 
 В данном разделе описано, как построить универсальное REST API оформления заказа, подходящее под большинство схем.
 
