@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: API интернет-магазина Magic Shop
+  title: API интернет-магазина Magic Shop 1
   description: |
     ## Общие сведения
 
