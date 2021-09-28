@@ -38,7 +38,7 @@
 
 Пример, как форма для выбора значений опций товара может выглядеть в мобильном приложении:
 
-<img src="../assets/product_form.jpg" style="max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 20px; display: block;">
+<img src="../assets/product_form.jpg" width="500px">
 
 Учитывая требования, можно создать следующие таблицы.
 
