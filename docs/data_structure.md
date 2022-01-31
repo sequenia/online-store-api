@@ -12,13 +12,13 @@
 CREATE TABLE categories
 (
   id bigserial PRIMARY KEY, -- Суррогатный идентификатор
-  name character varying, -- Системное уникальное название категории
-  presentation character varying -- Название категории, отображаемое на клиенте
+  code character varying, -- Системное уникальное название категории
+  name character varying -- Название категории, отображаемое на клиенте
 );
 
-CREATE UNIQUE INDEX index_categories_on_name
+CREATE UNIQUE INDEX index_categories_on_code
   ON categories
-  (name);
+  (code);
 ```
 
 ## Индексы базы данных

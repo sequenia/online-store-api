@@ -11,11 +11,11 @@ allOf:
 
       Не захардкожены в товары, а хранятся в них в виде списка объектов.
     properties:
-      name:
+      code:
         type: string
         description: Уникальное системное название
         example: fit
-      presentation:
+      name:
         type: string
         description: Название для отображения на клиенте
         example: Крой

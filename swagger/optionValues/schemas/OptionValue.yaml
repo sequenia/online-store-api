@@ -8,11 +8,11 @@ allOf:
 
       Внимание! Все значения для всех опций хранятся в одном справочнике, следовательно, их идентификаторы не могут повторяться даже между разными опциями.
     properties:
-      name:
+      code:
         type: string
         description: Уникальное системное название
         example: red
-      presentation:
+      name:
         type: string
         description: Название для отображения на клиенте
         example: Красный

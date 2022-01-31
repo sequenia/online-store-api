@@ -342,11 +342,11 @@ public enum OrderStatus {
   COMPLETE(4, "complete");
 
   private final int value;
-  private final String name;
+  private final String code;
 
-  OrderStatus(int value, String name) {
+  OrderStatus(int value, String code) {
     this.value = value;
-    this.name = name;
+    this.code = code;
   }
 }
 
@@ -382,11 +382,11 @@ public enum ShippingMethodType {
   DELIVERY(1, "delivery");
 
   private final int value;
-  private final String name;
+  private final String code;
 
-  ShippingMethodType(int value, String name) {
+  ShippingMethodType(int value, String code) {
     this.value = value;
-    this.name = name;
+    this.code = code;
   }
 }
 
@@ -428,11 +428,11 @@ public enum PaymentStatus {
   PAID(1, "paid");
 
   private final int value;
-  private final String name;
+  private final String code;
 
-  PaymentStatus(int value, String name) {
+  PaymentStatus(int value, String code) {
     this.value = value;
-    this.name = name;
+    this.code = code;
   }
 }
 
@@ -449,11 +449,11 @@ public enum PaymentMethodType {
   APPLE_PAY(3, "apple_pay");
 
   private final int value;
-  private final String name;
+  private final String code;
 
-  PaymentMethodType(int value, String name) {
+  PaymentMethodType(int value, String code) {
     this.value = value;
-    this.name = name;
+    this.code = code;
   }
 }
 

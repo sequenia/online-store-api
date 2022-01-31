@@ -48,11 +48,11 @@ public enum OrderStatus {
   CART(0, "cart");
 
   private final int value;
-  private final String name;
+  private final String code;
 
-  OrderStatus(int value, String name) {
+  OrderStatus(int value, String code) {
     this.value = value;
-    this.name = name;
+    this.code = code;
   }
 }
 
@@ -81,15 +81,15 @@ public class Product {
 
 public class OptionValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private Option option;
 }
 
 public class Option {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
 }
 ```
 
@@ -117,22 +117,22 @@ public class Option {
           "optionValues": [
             {
               "id": 1,
-              "name": "red",
-              "presentation": "Красный",
+              "code": "red",
+              "name": "Красный",
               "option": {
                 "id": 1,
-                "name": "color",
-                "presentation": "Цвет"
+                "code": "color",
+                "name": "Цвет"
               }
             },
             {
               "id": 4,
-              "name": "s",
-              "presentation": "S",
+              "code": "s",
+              "name": "S",
               "option": {
                 "id": 2,
-                "name": "size",
-                "presentation": "Размер"
+                "code": "size",
+                "name": "Размер"
               }
             }
           ]
