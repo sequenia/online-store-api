@@ -1,13 +1,13 @@
-/currentUser:
+/current_user:
   get:
     $ref: './currentUser/paths/ShowCurrentUser.yaml'
-/currentUser/login:
+/current_user/login:
   post:
     $ref: './currentUser/paths/Login.yaml'
-/currentUser/register:
+/current_user/register:
   post:
     $ref: './currentUser/paths/Register.yaml'
-/currentUser/registerAnonymously:
+/current_user/register_anonymously:
   post:
     $ref: './currentUser/paths/RegisterAnonymously.yaml'
 /products:
