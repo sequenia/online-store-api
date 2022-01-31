@@ -48,17 +48,17 @@
 CREATE TABLE options
 (
   id bigserial PRIMARY KEY, -- Идентификатор опции
-  name character varying, -- Системное название опции, например, "color"
-  presentation character varying -- Название опции для пользователя, например, "Цвет"
+  code character varying, -- Системное название опции, например, "color"
+  name character varying -- Название опции для пользователя, например, "Цвет"
 );
 ```
 
-Заводить несколько одинаковых опций не имеет смысла, поэтому нужно создать уникальный индекс по полю `name`:
+Заводить несколько одинаковых опций не имеет смысла, поэтому нужно создать уникальный индекс по полю `code`:
 
 ```sql
-CREATE UNIQUE INDEX index_options_on_name
+CREATE UNIQUE INDEX index_options_on_code
   ON options
-  (name);
+  (code);
 ```
 
 Значения опций:
@@ -67,20 +67,20 @@ CREATE UNIQUE INDEX index_options_on_name
 CREATE TABLE option_values
 (
   id bigserial PRIMARY KEY, -- Идентификатор значения опции
-  name character varying, -- Системное название значения, например "xl" или "red"
-  presentation character varying, -- Название значения для пользователя, например,"XL" или "Красный"
+  code character varying, -- Системное название значения, например "xl" или "red"
+  name character varying, -- Название значения для пользователя, например,"XL" или "Красный"
   option_id bigint -- Идентификатор опции, которому принадлежит значение
 );
 ```
 
-Заводить несколько одинаковых значений в рамках одной опции тоже не имеет смысла, поэтому нужно создать уникальный индекс по двум полям - `option_id`, `name`. Если поставить поле `option_id` на первое место, то индекс будет выполнять сразу две функции:
+Заводить несколько одинаковых значений в рамках одной опции тоже не имеет смысла, поэтому нужно создать уникальный индекс по двум полям - `option_id`, `code`. Если поставить поле `option_id` на первое место, то индекс будет выполнять сразу две функции:
 - Контроль уникальности по двум полям
 - Оптимизация выборки значений для конкретных опций
 
 ```sql
-CREATE UNIQUE INDEX index_option_values_on_option_id_and_name
+CREATE UNIQUE INDEX index_option_values_on_option_id_and_code
   ON option_values
-  (option_id, name);
+  (option_id, code);
 ```
 
 Структура данных для сериализации в JSON:
@@ -88,15 +88,15 @@ CREATE UNIQUE INDEX index_option_values_on_option_id_and_name
 ```java
 public class Option {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private List<OptionValue> values;
 }
 
 public class OptionValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
 }
 ```
 
@@ -107,67 +107,67 @@ public class OptionValue {
   "options": [
     {
       "id": 1,
-      "name": "color",
-      "presentation": "Цвет",
+      "code": "color",
+      "name": "Цвет",
       "values": [
         {
           "id": 1,
-          "name": "red",
-          "presentation": "Красный"
+          "code": "red",
+          "name": "Красный"
         },
         {
           "id": 2,
-          "name": "green",
-          "presentation": "Зеленый"
+          "code": "green",
+          "name": "Зеленый"
         },
         {
           "id": 3,
-          "name": "blue",
-          "presentation": "Синий"
+          "code": "blue",
+          "name": "Синий"
         }
       ]
     },
     {
       "id": 2,
-      "name": "size",
-      "presentation": "Размер",
+      "code": "size",
+      "name": "Размер",
       "values": [
         {
           "id": 4,
-          "name": "s",
-          "presentation": "S"
+          "code": "s",
+          "name": "S"
         },
         {
           "id": 5,
-          "name": "m",
-          "presentation": "M"
+          "code": "m",
+          "name": "M"
         },
         {
           "id": 6,
-          "name": "l",
-          "presentation": "L"
+          "code": "l",
+          "name": "L"
         },
         {
           "id": 7,
-          "name": "xl",
-          "presentation": "XL"
+          "code": "xl",
+          "name": "XL"
         }
       ]
     },
     {
       "id": 3,
-      "name": "material",
-      "presentation": "Материал",
+      "code": "material",
+      "name": "Материал",
       "values": [
         {
           "id": 8,
-          "name": "cotton",
-          "presentation": "Хлопок"
+          "code": "cotton",
+          "name": "Хлопок"
         },
         {
           "id": 9,
-          "name": "viscose",
-          "presentation": "Вискоза"
+          "code": "viscose",
+          "name": "Вискоза"
         }
       ]
     }
@@ -189,20 +189,20 @@ public class OptionValue {
 CREATE TABLE option_value_metas
 (
   id bigserial PRIMARY KEY, -- Идентификатор меты
-  name character varying, -- Название меты, например, "hex"
+  code character varying, -- Название меты, например, "hex"
   value character varying, -- Значение меты, например, "#ff0000"
   option_value_id bigint -- Идентификатор значения, которому принадлежит мета
 );
 ```
 
-Хранить несколько одинаковых мет для одного значения опций не имеет смысла, поэтому нужно завести уникальный индекс по двум полям - `option_value_id`, `name`. Если поставить поле `option_value_id` на первое место, то индекс будет выполнять сразу две функции:
+Хранить несколько одинаковых мет для одного значения опций не имеет смысла, поэтому нужно завести уникальный индекс по двум полям - `option_value_id`, `code`. Если поставить поле `option_value_id` на первое место, то индекс будет выполнять сразу две функции:
 - Контроль уникальности по двум полям
 - Оптимизация выборки мет для конкретных значений опций
 
 ```sql
-CREATE UNIQUE INDEX index_option_value_metas_on_option_value_id_and_name
+CREATE UNIQUE INDEX index_option_value_metas_on_option_value_id_and_code
   ON option_value_metas
-  (option_value_id, name);
+  (option_value_id, code);
 ```
 
 Структура данных для сериализации в JSON:
@@ -210,14 +210,14 @@ CREATE UNIQUE INDEX index_option_value_metas_on_option_value_id_and_name
 ```java
 public class OptionValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private List<OptionValueMeta> metas;
 }
 
 public class OptionValueMeta {
   private Long id;
-  private String name;
+  private String code;
   private String value;
 }
 ```
@@ -227,12 +227,12 @@ public class OptionValueMeta {
 ```json
 {
   "id": 1,
-  "name": "red",
-  "presentation": "Красный",
+  "code": "red",
+  "name": "Красный",
   "metas": [
     {
       "id": 1,
-      "name": "hex",
+      "code": "hex",
       "value": "#ff0000"
     }
   ]
@@ -249,17 +249,17 @@ public class OptionValueMeta {
 CREATE TABLE properties
 (
   id bigserial PRIMARY KEY, -- Идентификатор свойства
-  name character varying, -- Системное название свойства, например, "fit"
-  presentation character varying -- Название свойства для пользователя, например, "Крой"
+  code character varying, -- Системное название свойства, например, "fit"
+  name character varying -- Название свойства для пользователя, например, "Крой"
 );
 ```
 
-Заводить несколько одинаковых свойств не имеет смысла, поэтому нужно создать уникальный индекс по полю `name`:
+Заводить несколько одинаковых свойств не имеет смысла, поэтому нужно создать уникальный индекс по полю `code`:
 
 ```sql
-CREATE UNIQUE INDEX index_properties_on_name
+CREATE UNIQUE INDEX index_properties_on_code
   ON properties
-  (name);
+  (code);
 ```
 
 Значения свойств:
@@ -268,20 +268,20 @@ CREATE UNIQUE INDEX index_properties_on_name
 CREATE TABLE property_values
 (
   id bigserial PRIMARY KEY, -- Идентификатор значения свойства
-  name character varying, -- Системное название значения, например "classic"
-  presentation character varying, -- Название значения для пользователя, например,"Классический"
+  code character varying, -- Системное название значения, например "classic"
+  name character varying, -- Название значения для пользователя, например,"Классический"
   property_id bigint -- Идентификатор свойства, которому принадлежит значение
 );
 ```
 
-Заводить несколько одинаковых значений в рамках одного свойства тоже не имеет смысла, поэтому нужно создать уникальный индекс по двум полям - `property_id`, `name`. Если поставить поле `property_id` на первое место, то индекс будет выполнять сразу две функции:
+Заводить несколько одинаковых значений в рамках одного свойства тоже не имеет смысла, поэтому нужно создать уникальный индекс по двум полям - `property_id`, `code`. Если поставить поле `property_id` на первое место, то индекс будет выполнять сразу две функции:
 - Контроль уникальности по двум полям
 - Оптимизация выборки значений для конкретных свойств
 
 ```sql
-CREATE UNIQUE INDEX index_property_values_on_property_id_and_name
+CREATE UNIQUE INDEX index_property_values_on_property_id_and_code
   ON property_values
-  (property_id, name);
+  (property_id, code);
 ```
 
 Структура данных для сериализации в JSON:
@@ -289,15 +289,15 @@ CREATE UNIQUE INDEX index_property_values_on_property_id_and_name
 ```java
 public class Property {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private List<PropertyValue> values;
 }
 
 public class PropertyValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
 }
 ```
 
@@ -308,40 +308,40 @@ public class PropertyValue {
   "properties": [
     {
       "id": 1,
-      "name": "fit",
-      "presentation": "Крой",
+      "code": "fit",
+      "name": "Крой",
       "values": [
         {
           "id": 1,
-          "name": "classic",
-          "presentation": "Классический"
+          "code": "classic",
+          "name": "Классический"
         },
         {
           "id": 2,
-          "name": "slim",
-          "presentation": "Полуприлегающий"
+          "code": "slim",
+          "name": "Полуприлегающий"
         },
         {
           "id": 3,
-          "name": "regular",
-          "presentation": "Приталенный"
+          "code": "regular",
+          "name": "Приталенный"
         }
       ]
     },
     {
       "id": 2,
-      "name": "manufacturer",
-      "presentation": "Производитель",
+      "code": "manufacturer",
+      "name": "Производитель",
       "values": [
         {
           "id": 4,
-          "name": "cotton_plus",
-          "presentation": "Хлопок Плюс"
+          "code": "cotton_plus",
+          "name": "Хлопок Плюс"
         },
         {
           "id": 5,
-          "name": "natural_fabrics",
-          "presentation": "ООО Натуральные Ткани"
+          "code": "natural_fabrics",
+          "name": "ООО Натуральные Ткани"
         }
       ]
     }
@@ -480,35 +480,35 @@ public class Product {
 
 public class PropertyValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private Property property;
 }
 
 public class Property {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
 }
 
 public class Option {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
   private List<OptionValue> values;
 }
 
 public class OptionValue {
   private Long id;
+  private String code;
   private String name;
-  private String presentation;
 }
 
 public class Variant {
   private Long id;
   private String name;
   private VariantPrice price;
-  private Map<String, Long> optionValueIdByOptionName;
+  private Map<String, Long> optionValueIdByOptionCode;
 }
 
 public class VariantPrice {
@@ -526,57 +526,57 @@ public class VariantPrice {
     "propertyValues": [
       {
         "id": 1,
-        "name": "classic",
-        "presentation": "Классический",
+        "code": "classic",
+        "name": "Классический",
         "property": {
           "id": 1,
-          "name": "fit",
-          "presentation": "Крой"
+          "code": "fit",
+          "name": "Крой"
         }
       },
       {
         "id": 5,
-        "name": "natural_fabrics",
-        "presentation": "ООО Натуральные Ткани",
+        "code": "natural_fabrics",
+        "name": "ООО Натуральные Ткани",
         "property": {
           "id": 2,
-          "name": "manufacturer",
-          "presentation": "Производитель"
+          "code": "manufacturer",
+          "name": "Производитель"
         }
       }
     ],
     "options": [
       {
         "id": 1,
-        "name": "color",
-        "presentation": "Цвет",
+        "code": "color",
+        "name": "Цвет",
         "values": [
           {
             "id": 1,
-            "name": "red",
-            "presentation": "Красный"
+            "code": "red",
+            "name": "Красный"
           },
           {
             "id": 2,
-            "name": "green",
-            "presentation": "Зеленый"
+            "code": "green",
+            "name": "Зеленый"
           }
         ]
       },
       {
         "id": 2,
-        "name": "size",
-        "presentation": "Размер",
+        "code": "size",
+        "name": "Размер",
         "values": [
           {
             "id": 4,
-            "name": "s",
-            "presentation": "S"
+            "code": "s",
+            "name": "S"
           },
           {
             "id": 5,
-            "name": "m",
-            "presentation": "M"
+            "code": "m",
+            "name": "M"
           }
         ]
       }
@@ -588,7 +588,7 @@ public class VariantPrice {
         "price": {
           "amount": "900.00"
         },
-        "optionValueIdByOptionName": {
+        "optionValueIdByOptionCode": {
           "color": 1,
           "size": 4
         }
@@ -599,7 +599,7 @@ public class VariantPrice {
         "price": {
           "amount": "950.00"
         },
-        "optionValueIdByOptionName": {
+        "optionValueIdByOptionCode": {
           "color": 1,
           "size": 5
         }
@@ -610,7 +610,7 @@ public class VariantPrice {
         "price": {
           "amount": "950.00"
         },
-        "optionValueIdByOptionName": {
+        "optionValueIdByOptionCode": {
           "color": 2,
           "size": 5
         }

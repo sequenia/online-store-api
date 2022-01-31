@@ -8,7 +8,7 @@ allOf:
         description: |
           [ISO-код](https://ru.wikipedia.org/wiki/ISO_4217) валюты
         example: GAL
-      presentation:
+      name:
         type: string
         description: Название валюты для отображения на клиенте
         example: Галлеоны, ʛ
