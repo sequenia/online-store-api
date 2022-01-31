@@ -8,11 +8,11 @@ allOf:
 
       Внимание! Все значения для всех свойств хранятся в одном справочнике, следовательно, их идентификаторы не могут повторяться даже между разными свойствами.
     properties:
-      name:
+      code:
         type: string
         description: Уникальное системное название
         example: regular
-      presentation:
+      name:
         type: string
         description: Название для отображения на клиенте
         example: Приталенный
