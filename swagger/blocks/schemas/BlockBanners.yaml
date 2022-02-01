@@ -1,0 +1,26 @@
+allOf:
+  - $ref: './Block.yaml'
+  - description: Блок с баннерами
+    properties:
+      title:
+        example: null
+      type:
+        description: Тип блока, может принимать значения `banners_horizontal` или `banners_vertical`
+        example: banners_horizontal
+      full_width:
+        type: boolean
+        description: Занимают ли баннеры в блоке всю ширину экрана
+        example: false
+      pagination:
+        type: boolean
+        description: Должны ли баннеры пролистываться постранично или реализовывать плавный скролл
+        example: false
+      infinite_scroll:
+        type: boolean
+        description: Должен ли блок баннеров бесконечно листаться влево/вправо
+        example: false
+      banners:
+        type: array
+        description: Массив баннеров блока
+        items:
+          $ref: '../../banners/schemas/Banner.yaml'

@@ -1,0 +1,40 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: "Баннер в приложении"
+    properties:
+      title: 
+        type: string
+        description: "Заголовок баннера"
+        nullable: true
+        example: "Пример заголовка баннера"
+      type:
+        type: string
+        description: | 
+          Тип баннера. Возможные значения:
+          - `simple` - обычный баннер без каких-либо переходов
+          - `items_collection` - баннер, ведущий на подборку товаров
+          - `object` - баннер, ассоциированный с каким либо объектом, клик ведет по которому переводит к объекту
+        enum:
+          - simple
+          - items_collection
+          - object
+        example: simple
+      image:
+        $ref: '../../shared/schemas/Image.yaml'
+      object_id:
+        type: integer
+        description: "Идентификатор родительского объекта. Обязателен для типа `object`"
+        nullable: true
+        example: 201
+      object_type:
+        type: string
+        description: "Тип родительского объекта. Обязателен для типа `object`"
+        nullable: true
+        example: News
+      filters_set:
+        # TODO: - Сделать описание сета фильтров
+        type: object
+        nullable: true
+        description: "Фильтры для показа подборки товаров. Обязателен для типа `items_collection`"
+        example: {}

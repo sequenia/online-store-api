@@ -2,6 +2,16 @@ AccessToken:
   $ref: ./accessTokens/schemas/AccessToken.yaml
 Adjustment: 
   $ref: ./adjustments/schemas/Adjustment.yaml
+Banner:
+  $ref: ./banners/schemas/Banner.yaml
+Block:
+  $ref: ./blocks/schemas/Block.yaml
+BlockBanners:
+  $ref: ./blocks/schemas/BlockBanners.yaml
+BlockCategories:
+  $ref: './blocks/schemas/BlockCategories.yaml'
+BlockItemsCollection:
+  $ref: './blocks/schemas/BlockItemsCollection.yaml'
 Cart: 
   $ref: ./cart/schemas/Cart.yaml
 Country: 
@@ -20,6 +30,8 @@ DeliveryMethod:
   $ref: ./shippingMethods/schemas/ShippingMethod.yaml
 ErrorResponse: 
   $ref: ./base/schemas/ErrorResponse.yaml
+Image:
+  $ref: ./shared/schemas/Image.yaml
 IndexPaymentMethod: 
   $ref: ./paymentMethods/schemas/IndexPaymentMethod.yaml
 IndexProduct: 
@@ -46,6 +58,8 @@ OrderItem:
   $ref: ./orderItems/schemas/OrderItem.yaml
 OrderItemPrice: 
   $ref: ./prices/schemas/OrderItemPrice.yaml
+PaginationInfo:
+  $ref: ./shared/schemas/PaginationInfo.yaml
 Payment: 
   $ref: ./payments/schemas/Payment.yaml
 PaymentMethod: 

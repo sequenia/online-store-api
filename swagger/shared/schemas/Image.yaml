@@ -1,0 +1,29 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: "Изображение"
+    properties:
+      small:
+        description: "Ссылка на маленький размер изображения (~120x120px)"
+        type: string
+        example: "https://domain.com/path/to/small/image.jpg?1619710488"
+      medium:
+        description: "Ссылка на средний размер изображения (~320x320px)"
+        type: string
+        example: "https://domain.com/path/to/medium/image.jpg?1619710488"
+      large:
+        description: "Ссылка на большой размер изображения (~640x640px)"
+        type: string
+        example: "https://domain.com/path/to/large/image.jpg?1619710488"
+      original:
+        description: "Ссылка на оригинал изображения"
+        type: string
+        example: "https://domain.com/path/to/original/image.jpg?1619710488"
+      width:
+        type: integer
+        description: Ширина оригинального изображения
+        example: 1000
+      height:
+        type: integer
+        description: Высота оригинального изображения
+        example: 2000

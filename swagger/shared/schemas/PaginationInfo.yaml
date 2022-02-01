@@ -1,0 +1,15 @@
+type: object
+description: Информация о постраничной выдаче запроса
+properties:
+  page:
+    type: integer
+    description: Номер страницы
+    example: 1
+  per_page:
+    type: integer
+    description: Размер страницы
+    example: 10
+  has_more:
+    type: boolean
+    description: Информация, есть ли еще страницы в выдаче
+    example: true

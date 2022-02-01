@@ -1,0 +1,22 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: Блок с информацией для динамического построения произвольных страниц в МП (например, главная страница)
+    properties:
+      title:
+        type: string
+        description: Заголовок блока
+        nullable: true
+      type:
+        type: string
+        description: |
+          Тип блока. Возможные значения:
+          - `banners_horizontal` - блок с баннерами с горизонтальной прокруткой
+          - `banners_vertical` - блок баннеров без прокрутки, растягиваемый вниз по экрану
+          - `items_collection` - блок с подборкой товаров
+          - `categories` - блок категорий товаров
+        enum:
+          - banners_horizontal
+          - banners_vertical
+          - items_collection
+          - categories
