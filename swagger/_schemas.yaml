@@ -6,8 +6,10 @@ Banner:
   $ref: ./banners/schemas/Banner.yaml
 Block:
   $ref: ./blocks/schemas/Block.yaml
-BlockBanners:
-  $ref: ./blocks/schemas/BlockBanners.yaml
+BlockBannersHorizontal:
+  $ref: ./blocks/schemas/BlockBannersHorizontal.yaml
+BlockBannersVertical:
+  $ref: ./blocks/schemas/BlockBannersVertical.yaml
 BlockCategories:
   $ref: './blocks/schemas/BlockCategories.yaml'
 BlockItemsCollection:

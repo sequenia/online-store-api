@@ -1,0 +1,25 @@
+allOf:
+  - $ref: './Block.yaml'
+  - description: Вертикальный блок с баннерами
+    properties:
+      title:
+        example: null
+      type:
+        description: Тип блока, всегда принимает значение `banners_vertical`
+        example: banners_vertical
+      banners:
+        type: array
+        description: Массив баннеров блока
+        items:
+          $ref: '../../banners/schemas/Banner.yaml'
+      metrics:
+        type: array
+        description: Массив метрик для каждого баннера в блоке
+        items:
+          type: object
+          description: Метрика объекта
+          properties:
+            width:
+              type: number
+              description: Ширина элемента относительно экрана
+              example: 0.5

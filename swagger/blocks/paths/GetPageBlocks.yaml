@@ -26,7 +26,8 @@ responses:
                       description: Список блоков страницы
                       items:
                         oneOf:
-                          - $ref: '../../blocks/schemas/BlockBanners.yaml'
+                          - $ref: '../../blocks/schemas/BlockBannersHorizontal.yaml'
+                          - $ref: '../../blocks/schemas/BlockBannersVertical.yaml'
                           - $ref: '../../blocks/schemas/BlockCategories.yaml'
                           - $ref: '../../blocks/schemas/BlockItemsCollection.yaml'
                     pagination_info:

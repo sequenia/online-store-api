@@ -8,33 +8,36 @@ allOf:
         description: "Заголовок баннера"
         nullable: true
         example: "Пример заголовка баннера"
-      type:
-        type: string
-        description: | 
-          Тип баннера. Возможные значения:
-          - `simple` - обычный баннер без каких-либо переходов
-          - `items_collection` - баннер, клик по которому переводит на страницу товарной выдачи
-          - `object` - баннер, ассоциированный с каким либо объектом, клик по которому переводит к объекту
-        enum:
-          - simple
-          - items_collection
-          - object
-        example: simple
       image:
         $ref: '../../shared/schemas/Image.yaml'
-      object_id:
-        type: integer
-        description: "Идентификатор родительского объекта. Обязателен для типа `object`"
-        nullable: true
-        example: 201
-      object_type:
-        type: string
-        description: "Тип родительского объекта. Обязателен для типа `object`"
-        nullable: true
-        example: News
-      filters_set:
-        # TODO: - Сделать описание сета фильтров
+      redirect:
         type: object
+        description: Информация о переходе, который должен осуществляться при клике по баннер. Если в поле выгружен `null`, перехода не осуществляется
         nullable: true
-        description: "Фильтры для показа подборки товаров. Обязателен для типа `items_collection`"
-        example: {}
+        properties:
+          type:
+            type: string
+            description: |
+              Тип перехода. Может принимать значения:
+              - `items_collection` - клик переводит на страницу товарной выдачи
+              - `object` - клик по которому переводит к ассоцированному с баннером объекту (новость, акция, карточка товара и т.д.)
+            enum:
+              - items_collection
+              - object
+            example: items_collection
+          object_id:
+            type: integer
+            description: "Идентификатор родительского объекта. Обязателен для типа `object`"
+            nullable: true
+            example: 201
+          object_type:
+            type: string
+            description: "Тип родительского объекта. Обязателен для типа `object`"
+            nullable: true
+            example: News
+          filters_set:
+            # TODO: - Сделать описание сета фильтров
+            type: object
+            nullable: true
+            description: "Фильтры для показа подборки товаров. Обязателен для типа `items_collection`"
+            example: {}

@@ -1,0 +1,22 @@
+allOf:
+  - $ref: './Block.yaml'
+  - description: Горизонтальный блок с баннерами
+    properties:
+      title:
+        example: null
+      type:
+        description: Тип блока, всегда принимает значение `banners_horizontal`
+        example: banners_horizontal
+      scroll_behavior:
+        type: string
+        description: |
+          Поведение скролла блока. Может приимать значения:
+          - `free` - баннеры в блоке прокручиваются свободно
+          - `paging` - баннеры в блоке прокручиваются по одному, баннер занимает всю ширину экрана
+          - `paging_infinite` - баннеры в блоке прокручиваются по одному с зациливанием, баннер занимает всю ширину экрана
+        example: free
+      banners:
+        type: array
+        description: Массив баннеров блока
+        items:
+          $ref: '../../banners/schemas/Banner.yaml'
