@@ -82,6 +82,8 @@ Property:
   $ref: ./properties/schemas/Property.yaml
 PropertyValue: 
   $ref: ./propertyValues/schemas/PropertyValue.yaml
+Redirect:
+  $ref: './banners/schemas/Redirect.yaml'
 RegisterUser: 
   $ref: ./currentUser/schemas/RegisterUser.yaml
 RegularVariant: 

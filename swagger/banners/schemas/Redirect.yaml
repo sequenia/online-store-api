@@ -1,0 +1,30 @@
+type: object
+description: Информация о переходе, который должен осуществляться при клике по баннер. Если в поле выгружен `null`, перехода не осуществляется
+nullable: true
+properties:
+  type:
+    type: string
+    description: |
+      Тип перехода. Может принимать значения:
+      - `items_collection` - клик переводит на страницу товарной выдачи
+      - `object` - клик по которому переводит к ассоцированному с баннером объекту (новость, акция, карточка товара и т.д.)
+    enum:
+      - items_collection
+      - object
+    example: items_collection
+  object_id:
+    type: integer
+    description: "Идентификатор родительского объекта. Обязателен для типа `object`"
+    nullable: true
+    example: 201
+  object_type:
+    type: string
+    description: "Тип родительского объекта. Обязателен для типа `object`"
+    nullable: true
+    example: News
+  filters_set:
+    # TODO: - Сделать описание сета фильтров
+    type: object
+    nullable: true
+    description: "Фильтры для показа подборки товаров. Обязателен для типа `items_collection`"
+    example: {}
