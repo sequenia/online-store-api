@@ -25,7 +25,7 @@ description: |
   - `not_valid` - Переданные поля не прошли валидацию
   - `unauthorized` - Требуется авторизация
 tags:
-  - Оформление заказа
+  - checkout
 requestBody:
   description: Данные для оформления заказа
   content:

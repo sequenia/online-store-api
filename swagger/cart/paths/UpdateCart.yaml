@@ -6,7 +6,7 @@ description: |
   - `wrong_currency` - Валюта недоступна
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 requestBody:
   description: Данные для обновления корзины
   content:

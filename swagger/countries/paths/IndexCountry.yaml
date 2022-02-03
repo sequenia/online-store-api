@@ -1,7 +1,7 @@
 summary: Список стран
 description: Возвращает список стран
 tags:
-  - Справочники
+  - commons
 responses:
   '200':
     description: Успех

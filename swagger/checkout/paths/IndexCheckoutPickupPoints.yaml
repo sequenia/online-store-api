@@ -6,7 +6,7 @@ description: |
   - `shipping_method_not_found` - Способ получения заказа не найден
   - `unauthorized` - требуется авторизация
 tags:
-  - Оформление заказа
+  - checkout
 parameters:
   - $ref: '../../shippingMethods/parameters/ShippingMethodId.yaml'
 responses:

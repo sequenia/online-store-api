@@ -7,7 +7,7 @@ description: |
   Возможные коды ошибок:
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 responses:
   '200':
     description: Успех

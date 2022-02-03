@@ -6,7 +6,7 @@ description: |
   - `cart_item_not_found` - Позиция корзины не найдена
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 parameters:
   - $ref: '../../cartItems/parameters/CartItemId.yaml'
 responses:

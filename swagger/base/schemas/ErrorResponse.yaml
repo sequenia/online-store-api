@@ -1,23 +1,70 @@
 type: object
-description: Ответ от сервера в случае ошибки
+description: "Ошибочный ответ сервера"
 properties:
-  success:
-    type: boolean
-    description: Статус ответа. Всегда равен `false` для ответа с ошибкой
-    example: false
-  data:
-    type: object
-    description: Данные ответа. Вегда равно `null` для ответа с ошибкой
-    example: null
-  errorCode:
+  message:
     type: string
-    description: Код ошибки. Используется для отладки или обработки особых случаев поведения при ошибке. Это не HTTP-статус, а индикатор конкретной ошибки конкретного запроса. Например, если при аутентификации не удалось найти учетную запись, то кодом ошибки может быть `profile_not_found`.
-    example: profile_not_found
-  errorMessage:
+    nullable: false
+    description: "Сообщение от сервера при ошибке, которое должно вывести МП для пользователя"
+    example: "Что-то пошло не так"
+  code:
     type: string
-    description: Сообщение от сервера при ошибке, которое должно вывести МП для пользователя
-    example: Аккаунт не найден
+    nullable: true
+    description: "Cпецифический код ошибки в виде строки. Используется для нужд отладки или же для обработки особых случаев поведения приложения при ошибке (например, при оформлении заказа пользователь не указал способ доставки, в таком случае при выгрузке кода ошибки `empty_delivery_type`, приложение автоматически откроет экран выбора способа доставки)"
+    example: "something_went_wrong"
   errors:
     type: object
-    description: Объект с ошибками по каждому из полей, переданных в тело запроса
-    example: null
+    nullable: true
+    description: "Детальная информация об ошибках в полях объекта"
+    properties:
+      entity:
+        type: object
+        description: |
+          Объект, при отправке которого произошла ошибка, имя совпадает с именем объекта, отправленного в теле `POST`- или `PUT`-запроса.
+          Например, если в запрос был передан объект `user`, имя ключа будет также равно `user`
+        properties:
+          fields:
+            $ref: './FieldErrors.yaml'
+          nested_object_name:
+            type: object
+            description: |
+              Вложенный объект, при отправке которого произошла ошибка. Имя ключа совпадает с именем поля, где был передан объект.
+              Например, если объект был передан в поле  `profile`, имя ключа будет также равно `profile`
+            properties:
+              fields:
+                $ref: './FieldErrors.yaml'
+          nested_array_name:
+            type: array
+            description: |
+              Вложенный массив, при отправке которого произошла ошибка хотя бы в одном его элементе. Имя ключа совпадает поля родителя, где хранится объект.
+              Например, если массив был передан в поле `roles`, имя ключа будет также равно `roles`
+            items:
+              type: object
+              description: Объект, в котором произошла ошибка
+              properties:
+                index:
+                  type: integer
+                  description: Порядовый номер объекта в массиве
+                fields:
+                  $ref: './FieldErrors.yaml'
+    example: {
+      "user": {
+        "fields": {
+          "email": ["Некорректный формат email"],
+          "password_confirmation": ["Пароль не совпадает с подтверждением"],
+          "profile": ["Ошибка валидации"]
+        },
+        "profile": {
+          "fields": {
+            "first_name": ["Имя не заполнено"]
+          }
+        },
+        "roles": [
+          {
+            "index": 2,
+            "fields": {
+              "name": ["Роли с таким наазванием не существует"]
+            }
+          }
+        ]
+      }
+    }

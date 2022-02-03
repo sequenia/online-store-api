@@ -15,7 +15,7 @@ description: |
   - `empty_cart` - Корзина пуста
   - `unauthorized` - Требуется авторизация
 tags:
-  - Оформление заказа
+  - checkout
 responses:
   '200':
     description: Успех

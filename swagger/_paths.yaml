@@ -16,42 +16,42 @@
 /products/{productId}:
   get:
     $ref: './products/paths/ShowProduct.yaml'
-/cart:
-  get:
-    $ref: './cart/paths/ShowCart.yaml'
-  put:
-    $ref: './cart/paths/UpdateCart.yaml'
-/cart/items:
-  post:
-    $ref: './cartItems/paths/CreateCartItem.yaml'
-/cart/items/{cartItemId}:
-  put:
-    $ref: './cartItems/paths/UpdateCartItem.yaml'
-  delete:
-    $ref: './cartItems/paths/DeleteCartItem.yaml'
-/checkout:
-  get:
-    $ref: './checkout/paths/ShowCheckout.yaml'
-  put:
-    $ref: './checkout/paths/UpdateCheckout.yaml'
-/checkout/next:
-  post:
-    $ref: './checkout/paths/NextCheckout.yaml'
-/checkout/advance:
-  post:
-    $ref: './checkout/paths/AdvanceCheckout.yaml'
-/checkout/shipping_rates:
-  get:
-    $ref: './checkout/paths/IndexCheckoutShippingRates.yaml'
-/checkout/pickup_points:
-  get:
-    $ref: './checkout/paths/IndexCheckoutPickupPoints.yaml'
-/checkout/payment_methods:
-  get:
-    $ref: './checkout/paths/IndexPaymentMethods.yaml'
-/countries:
-  get:
-    $ref: './countries/paths/IndexCountry.yaml'
-/currencies:
-  get:
-    $ref: './currencies/paths/IndexCurrency.yaml'
+# /cart:
+#   get:
+#     $ref: './cart/paths/ShowCart.yaml'
+#   put:
+#     $ref: './cart/paths/UpdateCart.yaml'
+# /cart/items:
+#   post:
+#     $ref: './cartItems/paths/CreateCartItem.yaml'
+# /cart/items/{cartItemId}:
+#   put:
+#     $ref: './cartItems/paths/UpdateCartItem.yaml'
+#   delete:
+#     $ref: './cartItems/paths/DeleteCartItem.yaml'
+# /checkout:
+#   get:
+#     $ref: './checkout/paths/ShowCheckout.yaml'
+#   put:
+#     $ref: './checkout/paths/UpdateCheckout.yaml'
+# /checkout/next:
+#   post:
+#     $ref: './checkout/paths/NextCheckout.yaml'
+# /checkout/advance:
+#   post:
+#     $ref: './checkout/paths/AdvanceCheckout.yaml'
+# /checkout/shipping_rates:
+#   get:
+#     $ref: './checkout/paths/IndexCheckoutShippingRates.yaml'
+# /checkout/pickup_points:
+#   get:
+#     $ref: './checkout/paths/IndexCheckoutPickupPoints.yaml'
+# /checkout/payment_methods:
+#   get:
+#     $ref: './checkout/paths/IndexPaymentMethods.yaml'
+# /countries:
+#   get:
+#     $ref: './countries/paths/IndexCountry.yaml'
+# /currencies:
+#   get:
+#     $ref: './currencies/paths/IndexCurrency.yaml'

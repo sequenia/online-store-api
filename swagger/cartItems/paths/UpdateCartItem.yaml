@@ -7,7 +7,7 @@ description: |
   - `wrong_count` - Неверное количество
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 parameters:
   - $ref: '../../cartItems/parameters/CartItemId.yaml'
 requestBody:

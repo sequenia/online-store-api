@@ -2,7 +2,7 @@ allOf:
   - $ref: './Product.yaml'
   - type: object
     properties:
-      propertyValues:
+      property_values:
         type: array
         description: Конкретные значения для всех свойств товара
         items:
@@ -34,7 +34,7 @@ allOf:
                             description: Список дополнительной информации об опциях
                             items:
                               $ref: '../../optionValueMetas/schemas/OptionValueMeta.yaml'
-      masterVariant:
+      master_variant:
         allOf:
           - $ref: '../../variants/schemas/MasterVariant.yaml'
           - type: object
@@ -49,7 +49,7 @@ allOf:
             - $ref: '../../variants/schemas/RegularVariant.yaml'
             - type: object
               properties:
-                optionValueIdByOptionName:
+                option_value_ids_by_option_code:
                   type: object
                   description: |
                     Объект, который содержит значения опций, из которых состоит текущий вариант.

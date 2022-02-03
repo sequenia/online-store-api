@@ -2,7 +2,7 @@ allOf:
   - $ref: './Product.yaml'
   - type: object
     properties:
-      masterVariant:
+      master_variant:
         allOf:
           - $ref: '../../variants/schemas/MasterVariant.yaml'
           - type: object

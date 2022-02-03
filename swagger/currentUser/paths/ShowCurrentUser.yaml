@@ -5,20 +5,16 @@ description: |
   Возможные коды ошибок:
   - `unauthorized` - требуется авторизация
 tags:
-  - Текущий пользователь
+  - current_user
 responses:
   '200':
     description: Успех
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    user:
-                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
+          type: object
+          properties:
+            user:
+              $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'

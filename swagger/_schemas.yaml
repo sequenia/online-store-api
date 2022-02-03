@@ -20,6 +20,8 @@ DeliveryMethod:
   $ref: ./shippingMethods/schemas/ShippingMethod.yaml
 ErrorResponse: 
   $ref: ./base/schemas/ErrorResponse.yaml
+FieldErrors:
+  $ref: './base/schemas/FieldErrors.yaml'
 IndexPaymentMethod: 
   $ref: ./paymentMethods/schemas/IndexPaymentMethod.yaml
 IndexProduct: 

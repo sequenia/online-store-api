@@ -8,7 +8,7 @@ description: |
   - `wrong_count` - Неверное количество
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 requestBody:
   description: Данные для добавления варианта товара в корзину
   content:

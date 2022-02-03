@@ -1,7 +1,7 @@
 summary: Список валют
 description: Возвращает список доступных для выбора валют
 tags:
-  - Справочники
+  - commons
 responses:
   '200':
     description: Успех
