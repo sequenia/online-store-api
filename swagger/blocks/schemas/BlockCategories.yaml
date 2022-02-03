@@ -1,0 +1,15 @@
+allOf:
+  - $ref: './Block.yaml'
+  - description: Блок с категориями товаров каталога
+    properties:
+      title:
+        example: null
+      type:
+        description: Тип блока, всегда принимает значение `categories`
+        example: categories
+      categories:
+        type: array
+        description: Категории товаров каталога
+        items:
+          type: object
+        example: []
