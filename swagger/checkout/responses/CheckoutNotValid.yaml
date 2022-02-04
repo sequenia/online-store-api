@@ -12,9 +12,9 @@ content:
             order:
               customer:
                 fields:
-                  firstName:
+                  first_name:
                     - Ошибка
-                  lastName:
+                  last_name:
                     - Ошибка
                   email:
                     - Ошибка
@@ -22,9 +22,9 @@ content:
                     - Ошибка
               recipient:
                 fields:
-                  firstName:
+                  first_name:
                     - Ошибка
-                  lastName:
+                  last_name:
                     - Ошибка
                   email:
                     - Ошибка
