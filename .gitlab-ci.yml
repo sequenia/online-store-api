@@ -54,26 +54,26 @@ build:production:
   extends: .build
   only:
     refs:
-      - swagger
+      - master
   environment: production
 
 deploy:production:
   extends: .deploy
   only:
     refs:
-      - swagger
+      - master
   environment: production
 
 notify_success:production:
   extends: .notify_success
   only:
     refs:
-      - swagger
+      - master
   environment: production
 
 notify_failure:production:
   extends: .notify_failure
   only:
     refs:
-      - swagger
+      - master
   environment: production
