@@ -6,3 +6,5 @@ Cart:
   $ref: './cart/responses/Cart.yaml'
 Checkout:
   $ref: './checkout/responses/Checkout.yaml'
+CheckoutNotValid:
+  $ref: './checkout/responses/CheckoutNotValid.yaml'

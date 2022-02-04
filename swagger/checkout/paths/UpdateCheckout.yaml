@@ -45,11 +45,4 @@ responses:
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'
   '422':
-    description: Ошибка в данных
-    content:
-      application/json:
-        schema:
-          $ref: '../../base/schemas/ErrorResponse.yaml'
-        examples:
-          NotValid:
-            $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'
+    $ref: '../../checkout/responses/CheckoutNotValid.yaml'

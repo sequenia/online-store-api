@@ -140,14 +140,10 @@ paths:
 components:
   parameters:
     $ref: './_parameters.yaml'
-  examples:
-    $ref: './_examples.yaml'
   schemas:
     $ref: './_schemas.yaml'
   responses:
     $ref: './_responses.yaml'
-  # requestBodies:
-  #   $ref: './_requestBodies.yaml'
   securitySchemes:
     BearerAuth:
       type: http

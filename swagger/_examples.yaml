@@ -1,4 +1,0 @@
-RegisterNotValidErrorResponse:
-  $ref: './currentUser/examples/RegisterNotValidErrorResponse.yaml'
-CheckoutNotValidErrorResponse:
-  $ref: './checkout/examples/CheckoutNotValidErrorResponse.yaml'
