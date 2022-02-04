@@ -49,7 +49,7 @@ allOf:
             - $ref: '../../variants/schemas/RegularVariant.yaml'
             - type: object
               properties:
-                optionValueIdByOptionName:
+                optionValueIdByOptionCode:
                   type: object
                   description: |
                     Объект, который содержит значения опций, из которых состоит текущий вариант.
