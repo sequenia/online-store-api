@@ -32,11 +32,11 @@
     $ref: './cartItems/paths/UpdateCartItem.yaml'
   delete:
     $ref: './cartItems/paths/DeleteCartItem.yaml'
-# /checkout:
-#   get:
-#     $ref: './checkout/paths/ShowCheckout.yaml'
-#   put:
-#     $ref: './checkout/paths/UpdateCheckout.yaml'
+/checkout:
+  get:
+    $ref: './checkout/paths/ShowCheckout.yaml'
+  put:
+    $ref: './checkout/paths/UpdateCheckout.yaml'
 # /checkout/next:
 #   post:
 #     $ref: './checkout/paths/NextCheckout.yaml'

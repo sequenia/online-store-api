@@ -22,8 +22,8 @@ description: |
   Если в запрос переданы данные, относящиеся не к текущему этапу заказа, а к одному из предыдущих, то перед валиадцией данных заказ будет переведен в соответствующий предыдущий статус.
 
   Возможные коды ошибок:
-  - `not_valid` - Переданные поля не прошли валидацию
   - `unauthorized` - Требуется авторизация
+  - `not_valid` - Переданные поля не прошли валидацию
 tags:
   - checkout
 requestBody:
@@ -41,18 +41,9 @@ requestBody:
             example: false
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    order:
-                      $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'
+    $ref: '../../checkout/responses/Checkout.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
   '422':
     description: Ошибка в данных
     content:
@@ -61,11 +52,4 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           NotValid:
-            allOf:
-              - $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'
-              - summary: Переданные поля не прошли валидацию
-                value:
-                  errorCode: not_valid
-                  errorMessage: Проверьте введенные значения
-  '401':
-    $ref: '../../base/responses/Unauthorized.yaml'
+            $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'

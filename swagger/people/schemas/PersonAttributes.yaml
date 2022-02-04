@@ -1,11 +1,11 @@
 type: object
 description: Информациия о человеке
 properties:
-  firstName:
+  first_name:
     type: string
     description: Имя
     example: Гарри
-  lastName:
+  last_name:
     type: string
     description: Фамилия
     example: Поттер

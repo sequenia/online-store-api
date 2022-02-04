@@ -1,7 +1,7 @@
 type: object
 description: Адрес доставки
 properties:
-  countryId:
+  country_id:
     type: integer
     description: Идентификатор страны
     example: 1
