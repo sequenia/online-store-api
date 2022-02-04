@@ -10,6 +10,9 @@
 /current_user/register_anonymously:
   post:
     $ref: './currentUser/paths/RegisterAnonymously.yaml'
+/get_blocks:
+  get:
+    $ref: './blocks/paths/GetPageBlocks.yaml'
 /products:
   get:
     $ref: './products/paths/IndexProduct.yaml'

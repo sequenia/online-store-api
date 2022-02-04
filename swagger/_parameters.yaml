@@ -1,6 +1,10 @@
-ProductId:
-  $ref: './products/parameters/ProductId.yaml'
 CartItemId:
   $ref: './cartItems/parameters/CartItemId.yaml'
+PageNumber:
+  $ref: './shared/parameters/PageNumber.yaml'
+PageSize:
+  $ref: './shared/parameters/PageSize.yaml'
+ProductId:
+  $ref: './products/parameters/ProductId.yaml'
 ShippingMethodId:
   $ref: './shippingMethods/parameters/ShippingMethodId.yaml'

@@ -1,0 +1,7 @@
+in: query
+name: per_page
+description: "Размер страницы"
+schema:
+  type: integer
+  default: 10
+example: 10

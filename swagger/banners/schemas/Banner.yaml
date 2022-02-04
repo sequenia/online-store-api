@@ -1,0 +1,14 @@
+allOf:
+  - $ref: '../../base/schemas/Object.yaml'
+  - type: object
+    description: "Баннер в приложении"
+    properties:
+      title: 
+        type: string
+        description: "Заголовок баннера"
+        nullable: true
+        example: "Пример заголовка баннера"
+      image:
+        $ref: '../../shared/schemas/Image.yaml'
+      redirect:
+        $ref: './Redirect.yaml'
