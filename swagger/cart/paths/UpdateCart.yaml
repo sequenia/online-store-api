@@ -3,8 +3,8 @@ description: |
   Запрос предназначен для обновления основной информации о корзине. Возвращает обновлённую корзину.
 
   Возможные коды ошибок:
-  - `wrong_currency` - Валюта недоступна
   - `unauthorized` - требуется авторизация
+  - `wrong_currency` - Валюта недоступна
 tags:
   - cart
 requestBody:
@@ -33,8 +33,4 @@ responses:
             value:
               code: wrong_currency
               message: Выбранная валюта недоступна в магазине
-              errors: 
-                cart:
-                  fields:
-                    currency:
-                      - Выбранная валюта недоступна в магазине
+              errors: null

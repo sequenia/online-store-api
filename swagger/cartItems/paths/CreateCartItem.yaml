@@ -3,10 +3,10 @@ description: |
   Добавляет вариант товара в корзину. Если вариант уже добавлен в корзину, то изменяет количество в существующей позиции корзины на переданное (можно передавать отрицательное количество для уменьшения). Если количество стало меньше или равно нулю, то удаляет позицию из корзины. Возвращает обновлённую корзину.
 
   Возможные коды ошибок:
+  - `unauthorized` - Требуется авторизация
   - `product_not_found` - Товар не найден
   - `variant_not_found` - Вариант не найден
   - `wrong_count` - Неверное количество
-  - `unauthorized` - требуется авторизация
 tags:
   - cart
 requestBody:
@@ -20,18 +20,9 @@ requestBody:
             $ref: '../../orderItems/schemas/CreateOrderItem.yaml'
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+    $ref: '../../cart/responses/Cart.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
   '404':
     description: Ошибка "Не найдено"
     content:
@@ -40,19 +31,17 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           ProductNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Товар не найден
-                value:
-                  errorCode: product_not_found
-                  errorMessage: Товар не найден
+              summary: Товар не найден
+              value:
+                code: product_not_found
+                message: Товар не найден
+                errors: null
           VariantNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Вариант не найден
-                value:
-                  errorCode: variant_not_found
-                  errorMessage: Не удалось добавить вариант товара в корзину, так как он отсутствует в магазине
+            summary: Вариант не найден
+            value:
+              code: variant_not_found
+              message: Не удалось добавить вариант товара в корзину, так как он отсутствует в магазине
+              errors: null
   '422':
     description: Ошибка в данных
     content:
@@ -61,11 +50,7 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           WrongCount:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Неверное количество
-                value:
-                  errorCode: wrong_count
-                  errorMessage: Количество должно быть положительным
-  '401':
-    $ref: '../../base/responses/Unauthorized.yaml'
+            value:
+              code: wrong_count
+              message: Количество должно быть положительным
+              errors: null

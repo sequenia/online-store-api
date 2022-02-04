@@ -24,14 +24,14 @@
     $ref: './cart/paths/ShowCart.yaml'
   put:
     $ref: './cart/paths/UpdateCart.yaml'
-# /cart/items:
-#   post:
-#     $ref: './cartItems/paths/CreateCartItem.yaml'
-# /cart/items/{cartItemId}:
-#   put:
-#     $ref: './cartItems/paths/UpdateCartItem.yaml'
-#   delete:
-#     $ref: './cartItems/paths/DeleteCartItem.yaml'
+/cart/items:
+  post:
+    $ref: './cartItems/paths/CreateCartItem.yaml'
+/cart/items/{cart_item_id}:
+  put:
+    $ref: './cartItems/paths/UpdateCartItem.yaml'
+  delete:
+    $ref: './cartItems/paths/DeleteCartItem.yaml'
 # /checkout:
 #   get:
 #     $ref: './checkout/paths/ShowCheckout.yaml'

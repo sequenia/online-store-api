@@ -1,4 +1,4 @@
-name: cartItemId
+name: cart_item_id
 in: path
 description: Идентификатор позиции в корзине
 required: true
