@@ -1,5 +1,7 @@
 - name: current_user
   description: Текущий пользователь
+- name: blocks
+  description: Блоки
 - name: products
   description: Товары
 - name: cart

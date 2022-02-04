@@ -1,2 +1,6 @@
+NotFound:
+  $ref: './base/responses/NotFound.yaml'
 Unauthorized:
   $ref: './base/responses/Unauthorized.yaml'
+Cart:
+  $ref: './cart/responses/Cart.yaml'

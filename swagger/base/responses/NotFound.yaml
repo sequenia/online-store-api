@@ -1,0 +1,12 @@
+description: По запросу ничего не найдено
+content:
+  application/json:
+    schema:
+      $ref: '../../base/schemas/ErrorResponse.yaml'
+    examples:
+      Unauthorized:
+        summary: По запросу ничего не найдено
+        value:
+          code: not_found
+          message: По данному запросу ничего не найдено
+          errors: null

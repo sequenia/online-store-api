@@ -1,0 +1,7 @@
+in: query
+name: page
+description: "Номер страницы"
+schema:
+  type: integer
+  default: 1
+example: 1

@@ -1,0 +1,20 @@
+allOf:
+  - $ref: './Block.yaml'
+  - description: Блок с подборкой товаров каталога. Тип блока всегда принимает значение `items_collection`
+    properties:
+      title:
+        example: Новинки
+      type:
+        description: Тип блока, всегда принимает значение `items_collection`
+        example: items_collection
+      items:
+        type: array
+        description: Список товаров подборки
+        items:
+          $ref: '../../products/schemas/IndexProduct.yaml'
+      filters_set:
+        # TODO: - Сделать описание сета фильтров
+        type: object
+        nullable: true
+        description: Фильтры для показа всей подборки товаров
+        example: {}

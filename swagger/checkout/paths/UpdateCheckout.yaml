@@ -62,7 +62,6 @@ responses:
         examples:
           NotValid:
             allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
               - $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'
               - summary: Переданные поля не прошли валидацию
                 value:

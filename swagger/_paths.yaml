@@ -10,17 +10,20 @@
 /current_user/register_anonymously:
   post:
     $ref: './currentUser/paths/RegisterAnonymously.yaml'
+/get_blocks:
+  get:
+    $ref: './blocks/paths/GetPageBlocks.yaml'
 /products:
   get:
     $ref: './products/paths/IndexProduct.yaml'
-/products/{productId}:
+/products/{product_id}:
   get:
     $ref: './products/paths/ShowProduct.yaml'
-# /cart:
-#   get:
-#     $ref: './cart/paths/ShowCart.yaml'
-#   put:
-#     $ref: './cart/paths/UpdateCart.yaml'
+/cart:
+  get:
+    $ref: './cart/paths/ShowCart.yaml'
+  put:
+    $ref: './cart/paths/UpdateCart.yaml'
 # /cart/items:
 #   post:
 #     $ref: './cartItems/paths/CreateCartItem.yaml'

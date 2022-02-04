@@ -32,7 +32,6 @@ responses:
         examples:
           NotValid:
             allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
               - $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'
               - summary: Данные заказа не прошли валидацию
                 value:

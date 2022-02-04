@@ -1,18 +1,16 @@
-allOf:
-  - $ref: '../../base/examples/NotValidErrorResponse.yaml'
-  - value:
-      errors:
+value:
+  errors:
+    fields:
+      email:
+        - Неверный формат
+      password:
+        - Слишком простой
+      passwordConfirmation:
+        - Не совпадает с паролем
+    objects:
+      profile:
         fields:
-          email:
-            - Неверный формат
-          password:
-            - Слишком простой
-          passwordConfirmation:
-            - Не совпадает с паролем
-        objects:
-          profile:
-            fields:
-              firstName:
-                - Слишком длинное
-              lastName:
-                - Заполните это поле
+          firstName:
+            - Слишком длинное
+          lastName:
+            - Заполните это поле

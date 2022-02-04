@@ -1,0 +1,36 @@
+summary: Блоки страницы
+description: |
+  Возвращает информацию о блоках на странице для отрисовки в МП
+
+  Возможные коды ошибок:
+  - `not_found` - Страница не найдена
+tags:
+  - blocks
+parameters:
+  - $ref: '../../shared/parameters/PageNumber.yaml'
+  - $ref: '../../shared/parameters/PageSize.yaml'
+responses:
+  '200':
+    description: Успех
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../base/schemas/SuccessResponse.yaml'
+            - type: object
+              properties:
+                data:
+                  properties:
+                    blocks:
+                      type: array
+                      description: Список блоков страницы
+                      items:
+                        oneOf:
+                          - $ref: '../../blocks/schemas/BlockBannersHorizontal.yaml'
+                          - $ref: '../../blocks/schemas/BlockBannersVertical.yaml'
+                          - $ref: '../../blocks/schemas/BlockCategories.yaml'
+                          - $ref: '../../blocks/schemas/BlockItemsCollection.yaml'
+                    pagination_info:
+                      $ref: '../../shared/schemas/PaginationInfo.yaml'
+  '404':
+    $ref: '../../base/responses/NotFound.yaml'

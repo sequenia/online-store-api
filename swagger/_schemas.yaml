@@ -2,6 +2,18 @@ AccessToken:
   $ref: ./accessTokens/schemas/AccessToken.yaml
 Adjustment: 
   $ref: ./adjustments/schemas/Adjustment.yaml
+Banner:
+  $ref: ./banners/schemas/Banner.yaml
+Block:
+  $ref: ./blocks/schemas/Block.yaml
+BlockBannersHorizontal:
+  $ref: ./blocks/schemas/BlockBannersHorizontal.yaml
+BlockBannersVertical:
+  $ref: ./blocks/schemas/BlockBannersVertical.yaml
+BlockCategories:
+  $ref: './blocks/schemas/BlockCategories.yaml'
+BlockItemsCollection:
+  $ref: './blocks/schemas/BlockItemsCollection.yaml'
 Cart: 
   $ref: ./cart/schemas/Cart.yaml
 Country: 
@@ -22,6 +34,8 @@ ErrorResponse:
   $ref: ./base/schemas/ErrorResponse.yaml
 FieldErrors:
   $ref: './base/schemas/FieldErrors.yaml'
+Image:
+  $ref: ./shared/schemas/Image.yaml
 IndexPaymentMethod: 
   $ref: ./paymentMethods/schemas/IndexPaymentMethod.yaml
 IndexProduct: 
@@ -48,6 +62,8 @@ OrderItem:
   $ref: ./orderItems/schemas/OrderItem.yaml
 OrderItemPrice: 
   $ref: ./prices/schemas/OrderItemPrice.yaml
+PaginationInfo:
+  $ref: ./shared/schemas/PaginationInfo.yaml
 Payment: 
   $ref: ./payments/schemas/Payment.yaml
 PaymentMethod: 
@@ -68,6 +84,8 @@ Property:
   $ref: ./properties/schemas/Property.yaml
 PropertyValue: 
   $ref: ./propertyValues/schemas/PropertyValue.yaml
+Redirect:
+  $ref: './banners/schemas/Redirect.yaml'
 RegisterUser: 
   $ref: ./currentUser/schemas/RegisterUser.yaml
 RegularVariant: 
@@ -76,8 +94,6 @@ Shipment:
   $ref: ./shipments/schemas/Shipment.yaml
 ShippingRate: 
   $ref: ./shippingRates/schemas/ShippingRate.yaml
-ShowCart: 
-  $ref: ./cart/schemas/ShowCart.yaml
 ShowCheckoutOrder: 
   $ref: ./orders/schemas/ShowCheckoutOrder.yaml
 ShowCurrentUser: 
@@ -86,8 +102,6 @@ ShowProduct:
   $ref: ./products/schemas/ShowProduct.yaml
 SuccessResponse: 
   $ref: ./base/schemas/SuccessResponse.yaml
-UpdateCart: 
-  $ref: ./cart/schemas/UpdateCart.yaml
 UpdateCheckoutOrder: 
   $ref: ./orders/schemas/UpdateCheckoutOrder.yaml
 UpdateOrderItem: 

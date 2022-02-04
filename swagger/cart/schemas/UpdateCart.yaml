@@ -1,7 +1,0 @@
-type: object
-description: Информация для обновления корзины
-properties:
-  currencyId:
-    type: integer
-    description: Идентификатор валюты
-    example: 1
