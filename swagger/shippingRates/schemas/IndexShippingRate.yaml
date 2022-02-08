@@ -4,5 +4,5 @@ allOf:
     properties:
       price:
         $ref: '../../prices/schemas/Price.yaml'
-      shippingMethod:
+      shipping_method:
         $ref: '../../shippingMethods/schemas/ShippingMethod.yaml'

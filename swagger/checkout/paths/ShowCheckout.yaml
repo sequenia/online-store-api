@@ -12,24 +12,13 @@ description: |
   Если при выполнении запроса заказ находится в статусе `cart`, то заказ будет переведен в статус `personal_info`.
 
   Возможные коды ошибок:
-  - `empty_cart` - Корзина пуста
   - `unauthorized` - Требуется авторизация
+  - `empty_cart` - Корзина пуста
 tags:
-  - Оформление заказа
+  - checkout
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    order:
-                      $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'
+    $ref: '../../checkout/responses/Checkout.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'
   '403':
@@ -40,9 +29,8 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           EmptyCart:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Корзина пуста
-                value:
-                  errorCode: empty_cart
-                  errorMessage: Добавьте товары в корзину перед оформлением заказа
+            summary: Корзина пуста
+            value:
+              code: empty_cart
+              message: Добавьте товары в корзину перед оформлением заказа
+              errors: null

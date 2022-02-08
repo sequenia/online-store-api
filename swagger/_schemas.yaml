@@ -32,6 +32,8 @@ DeliveryMethod:
   $ref: ./shippingMethods/schemas/ShippingMethod.yaml
 ErrorResponse: 
   $ref: ./base/schemas/ErrorResponse.yaml
+FieldErrors:
+  $ref: './base/schemas/FieldErrors.yaml'
 Image:
   $ref: ./shared/schemas/Image.yaml
 IndexPaymentMethod: 
@@ -92,8 +94,6 @@ Shipment:
   $ref: ./shipments/schemas/Shipment.yaml
 ShippingRate: 
   $ref: ./shippingRates/schemas/ShippingRate.yaml
-ShowCart: 
-  $ref: ./cart/schemas/ShowCart.yaml
 ShowCheckoutOrder: 
   $ref: ./orders/schemas/ShowCheckoutOrder.yaml
 ShowCurrentUser: 
@@ -102,8 +102,6 @@ ShowProduct:
   $ref: ./products/schemas/ShowProduct.yaml
 SuccessResponse: 
   $ref: ./base/schemas/SuccessResponse.yaml
-UpdateCart: 
-  $ref: ./cart/schemas/UpdateCart.yaml
 UpdateCheckoutOrder: 
   $ref: ./orders/schemas/UpdateCheckoutOrder.yaml
 UpdateOrderItem: 

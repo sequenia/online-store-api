@@ -1,1 +1,162 @@
-$ref: '../../orders/schemas/Order.yaml'
+allOf:
+  - $ref: '../../orders/schemas/Order.yaml'
+  - type: object
+    properties:
+      id:
+        readOnly: true
+      status: 
+        readOnly: true
+      currency:
+        allOf:
+          - $ref: '../../currencies/schemas/Currency.yaml'
+          - type: object
+            description: Валюта, в которой оформлен заказ
+            readOnly: true
+      currency_id:
+        type: integer
+        writeOnly: true
+        description: Идентификатор валюты
+        example: 1
+      items:
+        type: array
+        description: Позиции корзины
+        readOnly: true
+        items:
+          allOf:
+            - $ref: '../../orderItems/schemas/OrderItem.yaml'
+            - type: object
+              properties:
+                count:
+                  example: 3
+                variant:
+                  allOf:
+                    - $ref: '../../variants/schemas/Variant.yaml'
+                    - type: object
+                      properties:
+                        product:
+                          allOf:
+                            - $ref: '../../products/schemas/Product.yaml'
+                            - type: object
+                              properties:
+                                property_values:
+                                  type: array
+                                  description: Значения свойств товара
+                                  items:
+                                    allOf:
+                                      - $ref: '../../propertyValues/schemas/PropertyValue.yaml'
+                                      - type: object
+                                        properties:
+                                          property:
+                                            $ref: '../../properties/schemas/Property.yaml'
+                        option_values:
+                          type: array
+                          description: Значения всех опций товара текущего варианта
+                          items:
+                            allOf:
+                              - $ref: '../../optionValues/schemas/OptionValue.yaml'
+                              - type: object
+                                properties:
+                                  option:
+                                    $ref: '../../options/schemas/Option.yaml'
+                adjustments:
+                  type: array
+                  description: Корректировки позиции заказа
+                  items:
+                    allOf:
+                      - $ref: '../../adjustments/schemas/Adjustment.yaml'
+                      - type: object
+                        properties:
+                          label:
+                            example: Закажи 3 мантии и получи скидку 10% на каждую из них
+                          price:
+                            allOf:
+                              - $ref: '../../prices/schemas/Price.yaml'
+                              - type: object
+                                properties:
+                                  amount:
+                                    example: "-10.00"
+                original_price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      description: Стоимость варианта без учета корректировок
+                      properties:
+                        amount:
+                          example: "100.00"
+                original_total:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      description: Стоимость позиции заказа без учета корректировок
+                      properties:
+                        amount:
+                          example: "300.00"
+                adjustments_total:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      description: Сумма корректировок позиции заказа
+                      properties:
+                        amount:
+                          example: "-10.00"
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      description: Стоимость варианта с учетом корректировок
+                      properties:
+                        amount:
+                          example: "90.00"
+                total:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      description: Стоимость позиции заказа с учетом корректировок
+                      properties:
+                        amount:
+                          example: "270.00"
+      adjustments:
+        type: array
+        description: Корректировки заказа
+        readOnly: true
+        items:
+          allOf:
+            - $ref: '../../adjustments/schemas/Adjustment.yaml'
+            - type: object
+              properties:
+                label:
+                  example: Укажи промокод "ПРАЗДНИК" и получи скидку 20% на весь заказ
+                price:
+                  allOf:
+                    - $ref: '../../prices/schemas/Price.yaml'
+                    - type: object
+                      properties:
+                        amount:
+                          example: "-54.00"
+      items_total:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок
+            readOnly: true
+            properties:
+              amount:
+                example: "270.00"
+      adjustments_total:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            description: Сумма корректировок заказа
+            readOnly: true
+            properties:
+              amount:
+                example: "-54.00"
+      total:
+        allOf:
+          - $ref: '../../prices/schemas/Price.yaml'
+          - type: object
+            description: Сумма стоимостей всех позиций заказа с учетом их корректировок и корректировок заказа
+            readOnly: true
+            properties:
+              amount:
+                example: "216.00"

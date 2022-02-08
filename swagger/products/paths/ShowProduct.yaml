@@ -6,7 +6,7 @@ description: |
   - `product_not_found` - Товар не найден
   - `product_not_available_for_currency` - Товар недоступен для продажи в выбранной валюте
 tags:
-  - Товары
+  - products
 parameters:
   - $ref: '../../products/parameters/ProductId.yaml'
 responses:
@@ -15,19 +15,15 @@ responses:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    product:
-                      $ref: '../../products/schemas/ShowProduct.yaml'
-                    currency:
-                      allOf:
-                        - $ref: '../../currencies/schemas/Currency.yaml'
-                        - type: object
-                          description: Текущая валюта пользователя
+          type: object
+          properties:
+            product:
+              $ref: '../../products/schemas/ShowProduct.yaml'
+            currency:
+              allOf:
+                - $ref: '../../currencies/schemas/Currency.yaml'
+                - type: object
+                  description: Текущая валюта пользователя
   '404':
     description: Не найдено
     content:
@@ -36,16 +32,14 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           ProductNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Товар не найден
-                value:
-                  errorCode: product_not_found
-                  errorMessage: Товар не найден
+            summary: Товар не найден
+            value:
+              code: product_not_found
+              message: Товар не найден
+              errors: null
           ProductNotAvailableForCurrency:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Товар недоступен для продажи в выбранной валюте
-                value:
-                  errorCode: product_not_available_for_currency
-                  errorMessage: Товар недоступен для продажи в выбранной валюте
+            summary: Товар недоступен для продажи в выбранной валюте
+            value:
+              code: product_not_available_for_currency
+              message: Товар недоступен для продажи в выбранной валюте
+              errors: null

@@ -1,4 +1,4 @@
-name: productId
+name: product_id
 in: path
 description: Идентификатор товара
 required: true

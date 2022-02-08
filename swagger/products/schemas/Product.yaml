@@ -7,3 +7,7 @@ allOf:
         type: string
         description: Название для отображения на клиенте
         example: Мантия
+      code:
+        type: string
+        description: Текстовый идентификатор товара
+        example: mantiya

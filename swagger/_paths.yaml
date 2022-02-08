@@ -16,7 +16,7 @@
 /products:
   get:
     $ref: './products/paths/IndexProduct.yaml'
-/products/{productId}:
+/products/{product_id}:
   get:
     $ref: './products/paths/ShowProduct.yaml'
 /cart:
@@ -27,7 +27,7 @@
 /cart/items:
   post:
     $ref: './cartItems/paths/CreateCartItem.yaml'
-/cart/items/{cartItemId}:
+/cart/items/{cart_item_id}:
   put:
     $ref: './cartItems/paths/UpdateCartItem.yaml'
   delete:

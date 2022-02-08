@@ -3,26 +3,16 @@ description: |
   Удаляет позицию из корзины по идентификатору позиции.
 
   Возможные коды ошибок:
-  - `cart_item_not_found` - Позиция корзины не найдена
   - `unauthorized` - требуется авторизация
+  - `cart_item_not_found` - Позиция корзины не найдена
+
 tags:
-  - Корзина
+  - cart
 parameters:
   - $ref: '../../cartItems/parameters/CartItemId.yaml'
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+    $ref: '../../cart/responses/Cart.yaml'
   '404':
     description: Ошибка "Не найдено"
     content:
@@ -31,11 +21,10 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           CartItemNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Позиция корзины не найдена
-                value:
-                  errorCode: cart_item_not_found
-                  errorMessage: Товар уже удалён из корзины
+            summary: Позиция корзины не найдена
+            value:
+              code: cart_item_not_found
+              message: Товар уже удалён из корзины
+              errors: null
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'

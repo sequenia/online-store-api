@@ -7,7 +7,7 @@ description: |
   Возможные коды ошибок:
   - `not_valid` - Ошибка валидации полей
 tags:
-  - Текущий пользователь
+  - current_user
 requestBody:
   description: Данные для регистрации
   content:
@@ -23,16 +23,12 @@ responses:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    accessToken:
-                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
-                    user:
-                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
+          type: object
+          properties:
+            accessToken:
+              $ref: '../../accessTokens/schemas/AccessToken.yaml'
+            user:
+              $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
   '422':
     description: Ошибка в данных
     content:
@@ -41,9 +37,18 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           NotValid:
-            allOf:
-              - $ref: '../../currentUser/examples/RegisterNotValidErrorResponse.yaml'
-              - summary: Ошибка валидации полей
-                value:
-                  errorCode: not_valid
-                  errorMessage: Проверьте введенные данные
+            summary: Ошибка валидации полей
+            value:
+              error: not_valid
+              message: Проверьте введенные данные
+              errors:
+                user:
+                  fields:
+                    email:
+                      - Пользователь с таким email уже зарегистрирован
+                    password_confirmation:
+                      - Пароль не совпадает с подтверждением
+                  profile:
+                    fields:
+                      first_name:
+                        - Введите имя

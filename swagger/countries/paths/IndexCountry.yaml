@@ -1,21 +1,17 @@
 summary: Список стран
 description: Возвращает список стран
 tags:
-  - Справочники
+  - commons
 responses:
   '200':
     description: Успех
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    countries:
-                      type: array
-                      description: Список стран
-                      items:
-                        $ref: '../../countries/schemas/Country.yaml'
+          type: object
+          properties:
+            countries:
+              type: array
+              description: Список стран
+              items:
+                $ref: '../../countries/schemas/Country.yaml'

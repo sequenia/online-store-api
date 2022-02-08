@@ -1,0 +1,8 @@
+description: Успех
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+          order:
+            $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'

@@ -5,9 +5,8 @@ content:
       $ref: '../../base/schemas/ErrorResponse.yaml'
     examples:
       Unauthorized:
-        allOf:
-          - $ref: '../../base/examples/ErrorResponse.yaml'
-          - summary: По запросу ничего не найдено
-            value:
-              errorCode: not_found
-              errorMessage: По данному запросу ничего не найдено
+        summary: По запросу ничего не найдено
+        value:
+          code: not_found
+          message: По данному запросу ничего не найдено
+          errors: null

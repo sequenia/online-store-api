@@ -1,0 +1,8 @@
+description: Данные корзины
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        cart:
+          $ref: '../schemas/Cart.yaml'

@@ -1,0 +1,52 @@
+description: Ошибка в данных
+content:
+  application/json:
+    schema:
+      $ref: '../../base/schemas/ErrorResponse.yaml'
+    examples:
+      NotValid:
+        value:
+          code: not_valid
+          message: Проверьте введенные значения
+          errors:
+            order:
+              customer:
+                fields:
+                  first_name:
+                    - Ошибка
+                  last_name:
+                    - Ошибка
+                  email:
+                    - Ошибка
+                  phone:
+                    - Ошибка
+              recipient:
+                fields:
+                  first_name:
+                    - Ошибка
+                  last_name:
+                    - Ошибка
+                  email:
+                    - Ошибка
+                  phone:
+                    - Ошибка
+              shipment:
+                fields:
+                  rate_id:
+                    - Ошибка
+                  pickup_point_id:
+                    - Ошибка
+                delivery_address:
+                  fields:
+                    country_id:
+                      - Ошибка
+                    city:
+                      - Ошибка
+                    line1:
+                      - Ошибка
+                    comment:
+                      - Ошибка
+              payment:
+                fields:
+                  method_id:
+                    - Ошибка
