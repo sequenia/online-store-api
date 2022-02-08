@@ -140,7 +140,7 @@ API должно всегда возвращать валидный JSON. Хот
 ```json
 {
   "profile": {
-    "fist_mame": "Гарри",
+    "fist_name": "Гарри",
     "last_name": "Поттер",
     "address": {
       "country": "Великобритания",
