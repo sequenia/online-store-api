@@ -3,7 +3,7 @@ allOf:
   - type: object
     description: Корректировка
     properties:
-      sourceType:
+      source_type:
         type: string
         enum:
           - promotion

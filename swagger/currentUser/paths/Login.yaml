@@ -8,7 +8,7 @@ description: |
   - `email_not_found` - Аккаунт по email не найден
   - `wrong_password` - Неверный пароль
 tags:
-  - Текущий пользователь
+  - current_user
 requestBody:
   description: Данные для аутентификации
   content:
@@ -24,17 +24,13 @@ responses:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    accessToken:
-                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
-                    user:
-                      $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
-  '422':
+          type: object
+          properties:
+            accessToken:
+              $ref: '../../accessTokens/schemas/AccessToken.yaml'
+            user:
+              $ref: '../../currentUser/schemas/ShowCurrentUser.yaml'
+  '401':
     description: Ошибка в данных
     content:
       application/json:
@@ -42,16 +38,22 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           EmailNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Аккаунт по email не найден
-                value:
-                  errorCode: email_not_found
-                  errorMessage: Пользователь с таким email не существует
+            summary: Аккаунт по email не найден
+            value:
+              code: email_not_found
+              message: Пользователь с таким email не существует
+              errors:
+                user:
+                  fields:
+                    email:
+                      - Пользователь с таким email не существует
           WrongPassword:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Неверный пароль
-                value:
-                  errorCode: wrong_password
-                  errorMessage: Неверный пароль
+            summary: Неверный пароль
+            value:
+              code: wrong_password
+              message: Неверный пароль
+              errors:
+                user:
+                  fields:
+                    password:
+                      - Неверный пароль

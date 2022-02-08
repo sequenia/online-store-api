@@ -5,22 +5,18 @@ description: |
   Возможные коды ошибок:
   - `unauthorized` - требуется авторизация
 tags:
-  - Оформление заказа
+  - checkout
 responses:
   '200':
     description: Успех
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    paymentMethods:
-                      type: array
-                      items:
-                        $ref: '../../paymentMethods/schemas/IndexPaymentMethod.yaml'
+          type: object
+          properties:
+            payment_methods:
+              type: array
+              items:
+                $ref: '../../paymentMethods/schemas/IndexPaymentMethod.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'

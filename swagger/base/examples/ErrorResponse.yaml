@@ -1,7 +1,0 @@
-summary: Ответ с ошибкой
-value:
-  success: false
-  data: null
-  errorCode: null
-  errorMessage: null
-  errors: null

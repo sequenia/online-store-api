@@ -3,10 +3,10 @@ description: |
   Возвращает список пунктов самовывоза в текущем заказе для указанного способа получения заказа.
 
   Возможные коды ошибок:
-  - `shipping_method_not_found` - Способ получения заказа не найден
   - `unauthorized` - требуется авторизация
+  - `shipping_method_not_found` - Способ получения заказа не найден
 tags:
-  - Оформление заказа
+  - checkout
 parameters:
   - $ref: '../../shippingMethods/parameters/ShippingMethodId.yaml'
 responses:
@@ -15,22 +15,20 @@ responses:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    pickupPoints:
-                      type: array
-                      description: Пункты самовывоза
-                      items:
-                        allOf:
-                          - $ref: '../../pickupPoints/schemas/PickupPoint.yaml'
-                          - type: object
-                            properties:
-                              location:
-                                $ref: '../../locations/schemas/Location.yaml'
+          type: object
+          properties:
+            pickup_points:
+              type: array
+              description: Пункты самовывоза
+              items:
+                allOf:
+                  - $ref: '../../pickupPoints/schemas/PickupPoint.yaml'
+                  - type: object
+                    properties:
+                      location:
+                        $ref: '../../locations/schemas/Location.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
   '404':
     description: Не найдено
     content:
@@ -39,11 +37,8 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           ShippingMethodNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Способ получения заказа не найден
-                value:
-                  errorCode: shipping_method_not_found
-                  errorMessage: Выбранный способ получения заказа недоступен
-  '401':
-    $ref: '../../base/responses/Unauthorized.yaml'
+            summary: Способ получения заказа не найден
+            value:
+              code: shipping_method_not_found
+              message: Выбранный способ получения заказа недоступен
+              errors: null

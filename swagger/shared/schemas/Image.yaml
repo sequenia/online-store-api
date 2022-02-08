@@ -27,15 +27,15 @@ allOf:
             type: string
             format: url
             example: "https://domain.com/path/to/original/image.jpg?1619710488"
-    dimensions:
-      type: object
-      description: Информация о метриках оригинального изображения
-      properties:
-        width:
-          type: integer
-          description: Ширина оригинального изображения
-          example: 1000
-        height:
-          type: integer
-          description: Высота оригинального изображения
-          example: 2000
+      dimensions:
+        type: object
+        description: Информация о метриках оригинального изображения
+        properties:
+          width:
+            type: integer
+            description: Ширина оригинального изображения
+            example: 1000
+          height:
+            type: integer
+            description: Высота оригинального изображения
+            example: 2000

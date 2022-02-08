@@ -6,7 +6,7 @@ description: |
 
   Таким образом, даже для тех пользователей, которые не прошли аутентификацию, доступна большая часть функциональности сервера, например, корзина.
 tags:
-  - Текущий пользователь
+  - current_user
 security: []
 requestBody:
   description: При регистрации анонимного пользователя не нужно передавать данные
@@ -18,11 +18,7 @@ responses:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    accessToken:
-                      $ref: '../../accessTokens/schemas/AccessToken.yaml'
+          type: object
+          properties:
+            accessToken:
+              $ref: '../../accessTokens/schemas/AccessToken.yaml'

@@ -5,38 +5,14 @@ description: |
   Если валидация не прошла, возвращает ошибки для каждого поля в заказе, которое не прошло валидацию.
 
   Возможные коды ошибок:
-  - `not_valid` - Данные заказа не прошли валидацию
   - `unauthorized` - Требуется авторизация
+  - `not_valid` - Данные заказа не прошли валидацию
 tags:
-  - Оформление заказа
+  - checkout
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    order:
-                      $ref: '../../orders/schemas/ShowCheckoutOrder.yaml'
-  '422':
-    description: Ошибка в данных
-    content:
-      application/json:
-        schema:
-          $ref: '../../base/schemas/ErrorResponse.yaml'
-        examples:
-          NotValid:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - $ref: '../../checkout/examples/CheckoutNotValidErrorResponse.yaml'
-              - summary: Данные заказа не прошли валидацию
-                value:
-                  errorCode: not_valid
-                  errorMessage: Проверьте введенные значения
+    $ref: '../../checkout/responses/Checkout.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'
+  '422':
+    $ref: '../../checkout/responses/CheckoutNotValid.yaml'

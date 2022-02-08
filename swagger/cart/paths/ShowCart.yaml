@@ -7,20 +7,9 @@ description: |
   Возможные коды ошибок:
   - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+    $ref: '../responses/Cart.yaml'
   '401':
     $ref: '../../base/responses/Unauthorized.yaml'

@@ -3,11 +3,11 @@ description: |
   Изменяет информацию о позиции в корзине по идентификатору позиции. Возвращает в ответ обновлённую корзину.
 
   Возможные коды ошибок:
+  - `unauthorized` - требуется авторизация
   - `cart_item_not_found` - Позиция корзины не найдена
   - `wrong_count` - Неверное количество
-  - `unauthorized` - требуется авторизация
 tags:
-  - Корзина
+  - cart
 parameters:
   - $ref: '../../cartItems/parameters/CartItemId.yaml'
 requestBody:
@@ -21,18 +21,9 @@ requestBody:
             $ref: '../../orderItems/schemas/UpdateOrderItem.yaml'
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+    $ref: '../../cart/responses/Cart.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
   '404':
     description: Ошибка "Не найдено"
     content:
@@ -41,12 +32,11 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           CartItemNotFound:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Позиция корзины не найдена
-                value:
-                  errorCode: cart_item_not_found
-                  errorMessage: Не удалось изменить данные, так как товар отсутствует в корзине
+              summary: Позиция корзины не найдена
+              value:
+                code: cart_item_not_found
+                message: Не удалось изменить данные, так как товар отсутствует в корзине
+                errors: null
   '422':
     description: Ошибка в данных
     content:
@@ -55,11 +45,8 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           WrongCount:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Неверное количество
-                value:
-                  errorCode: wrong_count
-                  errorMessage: Количество должно быть положительным
-  '401':
-    $ref: '../../base/responses/Unauthorized.yaml'
+            summary: Неверное количество
+            value:
+              code: wrong_count
+              message: Количество должно быть положительным
+              errors: null

@@ -1,11 +1,11 @@
 summary: Блоки страницы
 description: |
-  Возвращает информацию о блоках на странице для отрисовки в МП
+  Возвращает информацию о блоках на странице для отрисовки на клиенте
 
   Возможные коды ошибок:
   - `not_found` - Страница не найдена
 tags:
-  - Блоки
+  - blocks
 parameters:
   - $ref: '../../shared/parameters/PageNumber.yaml'
   - $ref: '../../shared/parameters/PageSize.yaml'

@@ -9,7 +9,7 @@ properties:
     type: string
     description: Пароль пользователя
     example: alohomora
-  passwordConfirmation:
+  password_confirmation:
     type: string
     description: Подтверждение пароля
     example: alohomora
@@ -17,11 +17,11 @@ properties:
     type: object
     description: Личные данные пользователя
     properties:
-      firstName:
+      first_name:
         type: string
         description: Имя
         example: Гарри
-      lastName:
+      last_name:
         type: string
         description: Фамилия
         example: Поттер

@@ -3,10 +3,10 @@ description: |
   Запрос предназначен для обновления основной информации о корзине. Возвращает обновлённую корзину.
 
   Возможные коды ошибок:
-  - `wrong_currency` - Валюта недоступна
   - `unauthorized` - требуется авторизация
+  - `wrong_currency` - Валюта недоступна
 tags:
-  - Корзина
+  - cart
 requestBody:
   description: Данные для обновления корзины
   content:
@@ -15,21 +15,12 @@ requestBody:
         type: object
         properties:
           cart:
-            $ref: '../../cart/schemas/UpdateCart.yaml'
+            $ref: '../../cart/schemas/Cart.yaml'
 responses:
   '200':
-    description: Успех
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '../../base/schemas/SuccessResponse.yaml'
-            - type: object
-              properties:
-                data:
-                  properties:
-                    cart:
-                      $ref: '../../cart/schemas/ShowCart.yaml'
+    $ref: '../responses/Cart.yaml'
+  '401':
+    $ref: '../../base/responses/Unauthorized.yaml'
   '422':
     description: Ошибка в данных
     content:
@@ -38,11 +29,8 @@ responses:
           $ref: '../../base/schemas/ErrorResponse.yaml'
         examples:
           WrongCurrency:
-            allOf:
-              - $ref: '../../base/examples/ErrorResponse.yaml'
-              - summary: Валюта недоступна
-                value:
-                  errorCode: wrong_currency
-                  errorMessage: Выбранная валюта недоступна в магазине
-  '401':
-    $ref: '../../base/responses/Unauthorized.yaml'
+            summary: Валюта недоступна
+            value:
+              code: wrong_currency
+              message: Выбранная валюта недоступна в магазине
+              errors: null

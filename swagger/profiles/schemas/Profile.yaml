@@ -3,11 +3,11 @@ allOf:
   - type: object
     description: Личные данные пользователя
     properties:
-      firstName:
+      first_name:
         type: string
         description: Имя
         example: Гарри
-      lastName:
+      last_name:
         type: string
         description: Фамилия
         example: Поттер
